@@ -4,51 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navjot Koth's Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <header class="hero-section">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white">
+
+    <header class="hero-section text-center py-12 bg-gradient-to-r from-blue-500 via-teal-500 to-blue-600 relative mb-8">
         <div class="typing-container">
-            <h1 id="typing-text">Navjot Koth</h1>
+            <h1 id="typing-text" class="text-4xl font-bold text-white">Navjot Koth</h1>
         </div>
-        <img src="path_to_your_image.jpg" alt="Navjot Koth" />
-        <button id="theme-toggle" class="theme-toggle">🌙</button>
+        <img src="path_to_your_image.jpg" alt="Navjot Koth" class="w-32 h-32 rounded-full border-4 border-blue-300 mt-8 mx-auto" />
+        <button id="theme-toggle" class="theme-toggle absolute top-6 right-6 bg-transparent border-none text-white text-xl hover:text-yellow-400 focus:outline-none transition">🌙</button>
     </header>
-    <nav class="nav-links">
-        <a href="#about">About Me</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-        <div class="dropdown">
-            <a href="#">Projects ▼</a>
-            <div class="dropdown-content">
-                <a href="projects/project2/index.html">Grocery Store V1</a>
-                <a href="projects/project3/index.html">Empowering Stationery Shop</a>
-                <a href="projects/project4/index.html">Sentiment Prediction</a>
-                <a href="projects/project5/index.html">Ant Colony Optimization</a>
-                <a href="projects/project6/index.html">Generative AI Integration</a>
-                <a href="projects/project7/index.html">AI-Powered Marketing</a>
+
+    <nav class="nav-links text-center mb-8">
+        <a href="#about" class="mx-6 text-lg hover:text-blue-400">About Me</a>
+        <a href="#projects" class="mx-6 text-lg hover:text-blue-400">Projects</a>
+        <a href="#contact" class="mx-6 text-lg hover:text-blue-400">Contact</a>
+        <div class="dropdown inline-block relative">
+            <a href="#" class="mx-6 text-lg hover:text-blue-400">Projects ▼</a>
+            <div class="dropdown-content absolute hidden bg-white text-gray-900 shadow-lg mt-2 rounded-lg w-48">
+                <a href="projects/project2/index.html" class="block px-4 py-2 text-sm hover:bg-blue-100">Grocery Store V1</a>
+                <a href="projects/project3/index.html" class="block px-4 py-2 text-sm hover:bg-blue-100">Empowering Stationery Shop</a>
+                <a href="projects/project4/index.html" class="block px-4 py-2 text-sm hover:bg-blue-100">Sentiment Prediction</a>
+                <a href="projects/project5/index.html" class="block px-4 py-2 text-sm hover:bg-blue-100">Ant Colony Optimization</a>
+                <a href="projects/project6/index.html" class="block px-4 py-2 text-sm hover:bg-blue-100">Generative AI Integration</a>
+                <a href="projects/project7/index.html" class="block px-4 py-2 text-sm hover:bg-blue-100">AI-Powered Marketing</a>
             </div>
         </div>
     </nav>
-    <section id="about" class="section">
-        <h2>About Me</h2>
-        <p>Hello! I am Navjot Koth, a passionate developer with a keen interest in AI, machine learning, and web development. I love solving real-world problems using innovative solutions. This portfolio showcases some of my key projects. Feel free to explore!</p>
+
+    <section id="about" class="section bg-white p-6 rounded-lg shadow-md mb-8">
+        <h2 class="text-2xl font-semibold mb-4">About Me</h2>
+        <p class="text-lg">Hello! I am Navjot Koth, a passionate developer with a keen interest in AI, machine learning, and web development. I love solving real-world problems using innovative solutions. This portfolio showcases some of my key projects. Feel free to explore!</p>
     </section>
-    <section id="projects" class="section">
-        <h2>Projects</h2>
+
+    <section id="projects" class="section bg-white p-6 rounded-lg shadow-md mb-8">
+        <h2 class="text-2xl font-semibold mb-4">Projects</h2>
         <div class="project-list">
-            <a href="projects/project2/index.html">Grocery Store V1</a>
-            <a href="projects/project2/index.html">Empowering Stationery Shop</a>
-            <a href="projects/project3/index.html">Sentiment Prediction</a>
-            <a href="projects/project4/index.html">Ant Colony Optimization</a>
-            <a href="projects/project5/index.html">Generative AI Integration</a>
-            <a href="projects/project6/index.html">AI-Powered Marketing</a>
+            <a href="projects/project2/index.html" class="block text-blue-500 text-lg hover:text-blue-600 mb-2">Grocery Store V1</a>
+            <a href="projects/project3/index.html" class="block text-blue-500 text-lg hover:text-blue-600 mb-2">Empowering Stationery Shop</a>
+            <a href="projects/project4/index.html" class="block text-blue-500 text-lg hover:text-blue-600 mb-2">Sentiment Prediction</a>
+            <a href="projects/project5/index.html" class="block text-blue-500 text-lg hover:text-blue-600 mb-2">Ant Colony Optimization</a>
+            <a href="projects/project6/index.html" class="block text-blue-500 text-lg hover:text-blue-600 mb-2">Generative AI Integration</a>
+            <a href="projects/project7/index.html" class="block text-blue-500 text-lg hover:text-blue-600 mb-2">AI-Powered Marketing</a>
         </div>
     </section>
-    <footer id="contact" class="section">
-        <h2>Contact Me</h2>
-        <p>Email: navjotkoth@gmail.com</p>
+
+    <footer id="contact" class="section bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold mb-4">Contact Me</h2>
+        <p class="text-lg">Email: <a href="mailto:navjotkoth@gmail.com" class="text-blue-500 hover:text-blue-700">navjotkoth@gmail.com</a></p>
     </footer>
+
     <script src="js/script.js"></script>
 </body>
 </html>
