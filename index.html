@@ -4,57 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navjot Koth's Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script> <!-- Add Tailwind CSS CDN -->
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white">
+<body class="bg-gray-50 text-gray-900 font-sans transition-colors duration-300">
 
-    <header class="hero-section text-center py-12 bg-gradient-to-r from-blue-500 via-teal-500 to-blue-600 relative mb-8">
-        <div class="typing-container">
-            <h1 id="typing-text" class="text-4xl font-bold text-white">Navjot Koth</h1>
+    <!-- Hero Section -->
+    <header class="relative text-center py-16 bg-gradient-to-r from-indigo-500 to-indigo-700 text-white">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-wide mb-4">Navjot Koth</h1>
+            <p class="text-lg md:text-xl mb-8">AI Enthusiast | Web Developer | Innovator</p>
+            <img src="path_to_your_image.jpg" alt="Navjot Koth" class="w-32 h-32 rounded-full border-4 border-indigo-300 mx-auto mb-4">
+            <button id="theme-toggle" class="absolute top-4 right-4 bg-transparent text-white text-xl p-2 rounded-full hover:bg-indigo-600 transition-all">
+                🌙
+            </button>
         </div>
-        <img src="path_to_your_image.jpg" alt="Navjot Koth" class="w-32 h-32 rounded-full border-4 border-blue-300 mt-8 mx-auto" />
-        <button id="theme-toggle" class="theme-toggle absolute top-6 right-6 bg-transparent border-none text-white text-xl hover:text-yellow-400 focus:outline-none transition">🌙</button>
     </header>
 
-    <nav class="nav-links text-center mb-8">
-        <a href="#about" class="mx-6 text-lg hover:text-blue-400">About Me</a>
-        <a href="#projects" class="mx-6 text-lg hover:text-blue-400">Projects</a>
-        <a href="#contact" class="mx-6 text-lg hover:text-blue-400">Contact</a>
-        <div class="dropdown inline-block relative">
-            <a href="#" class="mx-6 text-lg hover:text-blue-400">Projects ▼</a>
-            <div class="dropdown-content absolute hidden bg-white text-gray-900 shadow-lg mt-2 rounded-lg w-48">
-                <a href="projects/project2/index.html" class="block px-4 py-2 text-sm hover:bg-blue-100">Grocery Store V1</a>
-                <a href="projects/project3/index.html" class="block px-4 py-2 text-sm hover:bg-blue-100">Empowering Stationery Shop</a>
-                <a href="projects/project4/index.html" class="block px-4 py-2 text-sm hover:bg-blue-100">Sentiment Prediction</a>
-                <a href="projects/project5/index.html" class="block px-4 py-2 text-sm hover:bg-blue-100">Ant Colony Optimization</a>
-                <a href="projects/project6/index.html" class="block px-4 py-2 text-sm hover:bg-blue-100">Generative AI Integration</a>
-                <a href="projects/project7/index.html" class="block px-4 py-2 text-sm hover:bg-blue-100">AI-Powered Marketing</a>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="space-x-4">
+                    <a href="#about" class="text-gray-800 hover:text-indigo-600 text-lg font-semibold transition-all">About Me</a>
+                    <a href="#projects" class="text-gray-800 hover:text-indigo-600 text-lg font-semibold transition-all">Projects</a>
+                    <a href="#contact" class="text-gray-800 hover:text-indigo-600 text-lg font-semibold transition-all">Contact</a>
+                </div>
+                <div class="relative">
+                    <button class="text-gray-800 hover:text-indigo-600 font-semibold text-lg transition-all">
+                        Projects ▼
+                    </button>
+                    <div class="absolute right-0 hidden mt-2 bg-white shadow-lg rounded-md w-48">
+                        <a href="projects/project2/index.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100">Grocery Store V1</a>
+                        <a href="projects/project3/index.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100">Empowering Stationery Shop</a>
+                        <a href="projects/project4/index.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100">Sentiment Prediction</a>
+                        <a href="projects/project5/index.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100">Ant Colony Optimization</a>
+                        <a href="projects/project6/index.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100">Generative AI Integration</a>
+                        <a href="projects/project7/index.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100">AI-Powered Marketing</a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
 
-    <section id="about" class="section bg-white p-6 rounded-lg shadow-md mb-8">
-        <h2 class="text-2xl font-semibold mb-4">About Me</h2>
-        <p class="text-lg">Hello! I am Navjot Koth, a passionate developer with a keen interest in AI, machine learning, and web development. I love solving real-world problems using innovative solutions. This portfolio showcases some of my key projects. Feel free to explore!</p>
+    <!-- About Section -->
+    <section id="about" class="max-w-7xl mx-auto px-4 py-16 bg-white shadow-md rounded-lg my-8">
+        <h2 class="text-3xl font-bold text-indigo-700 mb-4">About Me</h2>
+        <p class="text-lg text-gray-700">Hello! I am Navjot Koth, a passionate developer with a keen interest in AI, machine learning, and web development. I love solving real-world problems using innovative solutions. This portfolio showcases some of my key projects. Feel free to explore!</p>
     </section>
 
-    <section id="projects" class="section bg-white p-6 rounded-lg shadow-md mb-8">
-        <h2 class="text-2xl font-semibold mb-4">Projects</h2>
-        <div class="project-list">
-            <a href="projects/project2/index.html" class="block text-blue-500 text-lg hover:text-blue-600 mb-2">Grocery Store V1</a>
-            <a href="projects/project3/index.html" class="block text-blue-500 text-lg hover:text-blue-600 mb-2">Empowering Stationery Shop</a>
-            <a href="projects/project4/index.html" class="block text-blue-500 text-lg hover:text-blue-600 mb-2">Sentiment Prediction</a>
-            <a href="projects/project5/index.html" class="block text-blue-500 text-lg hover:text-blue-600 mb-2">Ant Colony Optimization</a>
-            <a href="projects/project6/index.html" class="block text-blue-500 text-lg hover:text-blue-600 mb-2">Generative AI Integration</a>
-            <a href="projects/project7/index.html" class="block text-blue-500 text-lg hover:text-blue-600 mb-2">AI-Powered Marketing</a>
+    <!-- Projects Section -->
+    <section id="projects" class="bg-gray-50 py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-indigo-700 mb-8">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="projects/project2/index.html" class="block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow hover:bg-indigo-50">
+                    <h3 class="text-2xl font-semibold text-indigo-600">Grocery Store V1</h3>
+                    <p class="text-gray-600 mt-2">A simple grocery store management system with basic functionalities.</p>
+                </a>
+                <a href="projects/project3/index.html" class="block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow hover:bg-indigo-50">
+                    <h3 class="text-2xl font-semibold text-indigo-600">Empowering Stationery Shop</h3>
+                    <p class="text-gray-600 mt-2">An online platform to empower small stationery businesses.</p>
+                </a>
+                <a href="projects/project4/index.html" class="block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow hover:bg-indigo-50">
+                    <h3 class="text-2xl font-semibold text-indigo-600">Sentiment Prediction</h3>
+                    <p class="text-gray-600 mt-2">A sentiment analysis project using machine learning algorithms.</p>
+                </a>
+                <a href="projects/project5/index.html" class="block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow hover:bg-indigo-50">
+                    <h3 class="text-2xl font-semibold text-indigo-600">Ant Colony Optimization</h3>
+                    <p class="text-gray-600 mt-2">A project demonstrating Ant Colony Optimization for pathfinding.</p>
+                </a>
+                <a href="projects/project6/index.html" class="block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow hover:bg-indigo-50">
+                    <h3 class="text-2xl font-semibold text-indigo-600">Generative AI Integration</h3>
+                    <p class="text-gray-600 mt-2">Integrating generative AI techniques to create new content.</p>
+                </a>
+                <a href="projects/project7/index.html" class="block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow hover:bg-indigo-50">
+                    <h3 class="text-2xl font-semibold text-indigo-600">AI-Powered Marketing</h3>
+                    <p class="text-gray-600 mt-2">An AI-powered tool for automated marketing analysis and campaigns.</p>
+                </a>
+            </div>
         </div>
     </section>
 
-    <footer id="contact" class="section bg-white p-6 rounded-lg shadow-md">
-        <h2 class="text-2xl font-semibold mb-4">Contact Me</h2>
-        <p class="text-lg">Email: <a href="mailto:navjotkoth@gmail.com" class="text-blue-500 hover:text-blue-700">navjotkoth@gmail.com</a></p>
+    <!-- Contact Section -->
+    <footer id="contact" class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-indigo-700 mb-4">Contact Me</h2>
+            <p class="text-lg text-gray-700">Email: <a href="mailto:navjotkoth@gmail.com" class="text-indigo-600 hover:underline">navjotkoth@gmail.com</a></p>
+        </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <!-- JavaScript for Theme Toggle -->
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        });
+    </script>
 </body>
 </html>
