@@ -22,16 +22,33 @@ body {
 
 header.hero-section {
     text-align: center;
-    padding: 50px;
+    padding: 50px 20px;
     background-color: var(--bg-color);
     color: var(--text-color);
     position: relative;
+}
+
+header.hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.nav-links {
+    text-align: center;
+    margin: 20px 0;
 }
 
 .nav-links a {
     margin: 0 15px;
     color: var(--text-color);
     text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
 }
 
 .section {
@@ -39,6 +56,7 @@ header.hero-section {
     margin: 20px;
     background: var(--bg-color);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 .project-list a {
@@ -46,6 +64,12 @@ header.hero-section {
     margin: 10px 0;
     text-decoration: none;
     color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.project-list a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
 }
 
 .theme-toggle {
@@ -57,6 +81,11 @@ header.hero-section {
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--primary-color);
 }
 
 /* Typing Animation */
@@ -86,5 +115,25 @@ header.hero-section {
     }
     to {
         border-color: var(--text-color);
+    }
+}
+
+/* Smooth Scrolling for Navigation Links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header.hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+    }
+
+    .project-list a {
+        font-size: 1rem;
     }
 }
