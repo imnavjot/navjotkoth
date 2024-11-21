@@ -21,7 +21,6 @@
             z-index: -1;
         }
 
-
         /* Navbar at bottom of display */
         nav {
             position: fixed;
@@ -39,7 +38,7 @@
             box-shadow: 0 8px 25px rgba(16, 39, 112, .3); /* Adds a shadow effect */
             animation: wave-animation 3s ease-in-out infinite;  /* Apply animation */
         }
-        
+
         .image-container img {
             object-fit: cover; /* Ensures the image covers the entire area of the container without distortion */
             width: 100%;
@@ -71,6 +70,36 @@
             }
         }
 
+        /* Toggle button styles */
+        .toggle {
+            width: 60px;
+            height: 30px;
+            position: relative;
+            border-radius: 15px;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle::after {
+            content: '';
+            width: 26px;
+            height: 26px;
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s;
+        }
+
+        .toggle.dark-mode {
+            background-color: #4B5563;
+        }
+
+        .toggle.dark-mode::after {
+            transform: translateX(30px);
+        }
     </style>
 </head>
 <body class="bg-cream-100 text-gray-900 font-sans transition-colors duration-300 dark:bg-gray-800 dark:text-gray-100">
@@ -88,8 +117,6 @@
             <div class="image-container w-40 h-40 mx-auto mt-8 shadow-lg overflow-hidden relative">
                 <img src="me-image.jpg" alt="Navjot Koth" class="w-full h-full">
             </div>
-
-
         </div>
     </header>
 
@@ -117,7 +144,6 @@
                     <h3 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-300">Project 1</h3>
                     <p class="text-gray-600 mt-2 dark:text-gray-400">A detailed description of Project 1.</p>
                 </a>
-                <!-- Add other projects similarly -->
             </div>
         </div>
     </section>
@@ -139,44 +165,34 @@
                 <a href="#projects" class="text-gray-800 hover:text-indigo-600 text-lg font-semibold transition-all dark:text-gray-100 dark:hover:text-indigo-400">Projects</a>
                 <a href="#contact" class="text-gray-800 hover:text-indigo-600 text-lg font-semibold transition-all dark:text-gray-100 dark:hover:text-indigo-400">Contact</a>
             </div>
-            <button id="theme-toggle" class="bg-transparent text-gray-800 text-2xl p-2 rounded-full hover:bg-indigo-600 transition-all dark:text-indigo-100">
-                🌙
-            </button>
+            <div id="theme-toggle" class="toggle"></div>
         </div>
     </nav>
 
     <!-- JavaScript -->
     <script>
-        // Theme Toggle Logic
-        const themeToggle = document.getElementById('theme-toggle');
-        const currentTheme = localStorage.getItem('theme');
-        
-        // Set the initial theme based on saved preference
-        if (currentTheme === 'dark') {
-            document.body.classList.add('dark');
-            themeToggle.textContent = '☀️'; // Sun icon for dark mode
-        } else {
-            themeToggle.textContent = '🌙'; // Moon icon for light mode
+        const themeToggle = document.getElementById("theme-toggle");
+        const currentTheme = localStorage.getItem("theme");
+
+        // Set initial state
+        if (currentTheme === "dark") {
+            document.body.classList.add("dark");
+            themeToggle.classList.add("dark-mode");
         }
-        
-        // Toggle dark mode on button click
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark');
-        
-            // Save theme preference to localStorage
-            const theme = document.body.classList.contains('dark') ? 'dark' : 'light';
-            localStorage.setItem('theme', theme);
-        
-            // Change button text based on the current theme
-            themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+
+        themeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark");
+            themeToggle.classList.toggle("dark-mode");
+
+            const theme = document.body.classList.contains("dark") ? "dark" : "light";
+            localStorage.setItem("theme", theme);
         });
 
-
         // Particles.js Initialization
-        particlesJS('particles-js', {
+        particlesJS("particles-js", {
             particles: {
                 number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: "#ffffff" },
+                color: { value: document.body.classList.contains("dark") ? "#ffffff" : "#000000" },
                 shape: { type: "circle" },
                 opacity: { value: 0.5 },
                 size: { value: 3 },
