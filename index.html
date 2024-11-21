@@ -4,19 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navjot Koth's Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script> <!-- Add Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script> <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script> <!-- Particles.js -->
     <style>
-        /* Add transition for smooth theme change */
+        /* Smooth transition for theme switching */
         .transition-colors {
             transition: background-color 0.3s, color 0.3s;
         }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans transition-colors duration-300">
+<body class="bg-gray-50 text-gray-900 font-sans transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100">
 
     <!-- Hero Section -->
-    <header class="relative text-center py-24 bg-gradient-to-r from-indigo-500 to-indigo-700 text-white dark:bg-gradient-to-r from-indigo-700 to-indigo-900">
-        <div class="absolute inset-0 bg-black opacity-50"></div>
+    <header class="relative text-center py-24 text-white">
+        <div id="particles-js"></div> <!-- Particle.js background -->
         <div class="relative z-10">
             <h1 class="text-5xl md:text-6xl font-bold tracking-wide mb-4">Navjot Koth</h1>
             <p class="text-lg md:text-2xl mb-8 font-medium">AI Enthusiast | Web Developer | Innovator</p>
@@ -27,6 +35,7 @@
             </button>
         </div>
     </header>
+
 
     <!-- Sticky Navigation Bar -->
     <nav class="bg-white shadow-lg sticky top-0 z-10 transition-all duration-300 dark:bg-gray-800 dark:text-white">
@@ -42,11 +51,30 @@
     </nav>
 
     <!-- About Section -->
-    <section id="about" class="max-w-7xl mx-auto px-4 py-16 bg-white shadow-md rounded-lg my-8 dark:bg-gray-800 dark:text-gray-100">
-        <h2 class="text-4xl font-bold text-indigo-700 mb-6 text-center dark:text-indigo-400">About Me</h2>
-        <p class="text-xl text-gray-700 mb-4 dark:text-gray-300">Hi, I’m Navjot Koth, an AI enthusiast, passionate developer, and someone who believes in the power of technology to solve real-world challenges. I’ve spent the last few years learning and developing innovative projects that push the boundaries of what’s possible with Artificial Intelligence and web technologies.</p>
-        <p class="text-xl text-gray-700 mb-6 dark:text-gray-300">My journey started with a keen interest in data science and machine learning, but quickly expanded to full-stack web development. I combine my passion for both fields to create impactful solutions that can help businesses grow and make lives easier.</p>
+    <section id="about" class="py-16">
+        <h2 class="text-4xl font-bold text-center text-indigo-700 mb-6 dark:text-indigo-400">About Me</h2>
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="bg-white shadow-md rounded-lg p-8 dark:bg-gray-800 dark:text-gray-100">
+                <p class="text-xl mb-4">Hi, I’m Navjot Koth, an AI enthusiast, passionate developer, and someone who believes in the power of technology to solve real-world challenges.</p>
+                <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                    <!-- Dynamic Cards -->
+                    <div class="bg-indigo-50 dark:bg-gray-700 p-4 rounded-lg shadow-md">
+                        <h3 class="font-bold text-xl text-indigo-700 dark:text-indigo-400">AI Enthusiast</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mt-2">Exploring the potential of artificial intelligence to make smarter decisions.</p>
+                    </div>
+                    <div class="bg-indigo-50 dark:bg-gray-700 p-4 rounded-lg shadow-md">
+                        <h3 class="font-bold text-xl text-indigo-700 dark:text-indigo-400">Full-Stack Developer</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mt-2">Building scalable and modern web applications using the latest technologies.</p>
+                    </div>
+                    <div class="bg-indigo-50 dark:bg-gray-700 p-4 rounded-lg shadow-md">
+                        <h3 class="font-bold text-xl text-indigo-700 dark:text-indigo-400">Problem Solver</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mt-2">Combining logic and creativity to tackle complex challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+
 
     <!-- Projects Section -->
     <section id="projects" class="bg-gray-50 py-16 dark:bg-gray-900">
@@ -81,6 +109,7 @@
         </div>
     </section>
 
+
     <!-- Contact Section -->
     <footer id="contact" class="bg-white py-16 dark:bg-gray-800">
         <div class="max-w-7xl mx-auto px-4">
@@ -88,27 +117,39 @@
             <p class="text-lg text-gray-700 dark:text-gray-300">Email: <a href="mailto:navjotkoth@gmail.com" class="text-indigo-600 hover:underline dark:text-indigo-400">navjotkoth@gmail.com</a></p>
         </div>
     </footer>
-
-    <!-- JavaScript for Theme Toggle -->
+    
+    <!-- JavaScript -->
     <script>
+        // Theme Toggle Logic
         const themeToggle = document.getElementById('theme-toggle');
-        const body = document.body;
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') document.body.classList.add('dark');
 
-        // Check localStorage for theme preference
-        const savedTheme = localStorage.getItem('theme');
-
-        if (savedTheme) {
-            body.classList.add(savedTheme);
-            themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-        }
-
-        // Toggle theme on button click
         themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark');
-            const isDarkMode = body.classList.contains('dark');
-            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-            themeToggle.textContent = isDarkMode ? '☀️' : '🌙';
+            document.body.classList.toggle('dark');
+            localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+            themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        });
+
+        // Particles.js Initialization
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#ffffff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5 },
+                size: { value: 3 },
+                line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 6 }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
+                modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
+            },
+            retina_detect: true
         });
     </script>
 </body>
 </html>
+
