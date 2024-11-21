@@ -26,28 +26,21 @@
             clip-path: path("M50,10 C80,5, 95,30, 85,50 C95,70, 80,95, 50,90 C20,95, 5,70, 15,50 C5,30, 20,5, 50,10 Z");
             -webkit-clip-path: path("M50,10 C80,5, 95,30, 85,50 C95,70, 80,95, 50,90 C20,95, 5,70, 15,50 C5,30, 20,5, 50,10 Z");
         }
+
+        /* Navbar at bottom of display */
+        nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100">
+<body class="bg-cream-100 text-gray-900 font-sans transition-colors duration-300 dark:bg-gray-800 dark:text-gray-100">
 
     <!-- Particle.js background -->
     <div id="particles-js"></div>
-
-    <!-- Sticky Navigation Bar -->
-    <nav class="bg-white shadow-lg sticky top-0 z-10 transition-all duration-300 dark:bg-gray-800 dark:text-white">
-        <div class="max-w-7xl mx-auto px-4 py-3">
-            <div class="flex justify-between items-center">
-                <div class="space-x-6">
-                    <a href="#about" class="text-gray-800 hover:text-indigo-600 text-lg font-semibold transition-all dark:text-gray-100 dark:hover:text-indigo-400">About Me</a>
-                    <a href="#projects" class="text-gray-800 hover:text-indigo-600 text-lg font-semibold transition-all dark:text-gray-100 dark:hover:text-indigo-400">Projects</a>
-                    <a href="#contact" class="text-gray-800 hover:text-indigo-600 text-lg font-semibold transition-all dark:text-gray-100 dark:hover:text-indigo-400">Contact</a>
-                </div>
-                <button id="theme-toggle" class="bg-transparent text-gray-800 text-2xl p-2 rounded-full hover:bg-indigo-600 transition-all dark:text-indigo-100">
-                    🌙
-                </button>
-            </div>
-        </div>
-    </nav>
 
     <!-- Header Section -->
     <header class="relative text-center py-24 text-white">
@@ -99,6 +92,20 @@
             <p class="text-lg text-gray-700 dark:text-gray-300">Email: <a href="mailto:navjotkoth@gmail.com" class="text-indigo-600 hover:underline dark:text-indigo-400">navjotkoth@gmail.com</a></p>
         </div>
     </footer>
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="bg-cream-200 shadow-lg transition-all duration-300 dark:bg-gray-900 dark:text-white">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="space-x-6">
+                <a href="#about" class="text-gray-800 hover:text-indigo-600 text-lg font-semibold transition-all dark:text-gray-100 dark:hover:text-indigo-400">About Me</a>
+                <a href="#projects" class="text-gray-800 hover:text-indigo-600 text-lg font-semibold transition-all dark:text-gray-100 dark:hover:text-indigo-400">Projects</a>
+                <a href="#contact" class="text-gray-800 hover:text-indigo-600 text-lg font-semibold transition-all dark:text-gray-100 dark:hover:text-indigo-400">Contact</a>
+            </div>
+            <button id="theme-toggle" class="bg-transparent text-gray-800 text-2xl p-2 rounded-full hover:bg-indigo-600 transition-all dark:text-indigo-100">
+                🌙
+            </button>
+        </div>
+    </nav>
 
     <!-- JavaScript -->
     <script>
