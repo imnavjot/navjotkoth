@@ -69,6 +69,39 @@
                 border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%;
             }
         }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 20;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #2d3748;
+            color: #edf2f7;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .close {
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            position: absolute;
+            top: 0.5rem;
+            right: 1rem;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200 font-sans transition-colors duration-300">
@@ -110,7 +143,8 @@
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="text-3xl font-bold text-indigo-400 mb-8">Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <a href="projects/project1/index.html" class="block bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow hover:bg-gray-600 text-white">
+                <!-- Project Card -->
+                <a href="#" onclick="openModal('project1')" class="block bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow hover:bg-gray-600 text-white">
                     <h3 class="text-2xl font-semibold text-indigo-300">Project 1</h3>
                     <p class="text-gray-400 mt-2">A detailed description of Project 1.</p>
                 </a>
@@ -139,6 +173,33 @@
         </div>
     </nav>
 
+    <!-- Modal for Project 1 Details -->
+    <div id="project1" class="modal">
+        <div class="modal-content relative">
+            <span class="close" onclick="closeModal('project1')">&times;</span>
+            <h2 class="text-3xl font-bold text-indigo-400 mb-4">Project 1</h2>
+            <section>
+                <h3 class="text-2xl font-semibold">Description</h3>
+                <p>This project is a basic online grocery store application where users can browse products, add them to their cart, and proceed to checkout. The project also includes a simple admin interface for adding new products to the store.</p>
+
+                <h3 class="text-2xl font-semibold mt-4">Technologies</h3>
+                <p>HTML, CSS, JavaScript, PHP, MySQL</p>
+
+                <h3 class="text-2xl font-semibold mt-4">Key Features</h3>
+                <ul>
+                    <li>User registration and login system</li>
+                    <li>Product browsing and cart management</li>
+                    <li>Checkout and order placement</li>
+                    <li>Admin panel for managing products</li>
+                    <li>Basic product filtering and sorting</li>
+                </ul>
+
+                <h3 class="text-2xl font-semibold mt-4">External Link</h3>
+                <a href="https://link-to-demo-or-repository.com" class="text-indigo-600 hover:underline">View Demo or Repository</a>
+            </section>
+        </div>
+    </div>
+
     <!-- JavaScript -->
     <script>
         // Particles.js Initialization
@@ -159,6 +220,15 @@
             },
             retina_detect: true
         });
+
+        // Modal handling
+        function openModal(projectId) {
+            document.getElementById(projectId).style.display = 'flex';
+        }
+
+        function closeModal(projectId) {
+            document.getElementById(projectId).style.display = 'none';
+        }
     </script>
 </body>
 </html>
