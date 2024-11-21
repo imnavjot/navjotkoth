@@ -37,7 +37,7 @@
             height: 10rem; /* Adjust the height as needed */
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(16, 39, 112, .3); /* Adds a shadow effect */
-            animation: wave-animation 3s ease-in-out infinite;
+            animation: wave-animation 3s ease-in-out infinite;  /* Apply animation */
         }
         
         .image-container img {
@@ -46,21 +46,28 @@
             height: 100%;
         }
 
+        /* Keyframes for the border-radius animation */
         @keyframes wave-animation {
-            0% {
-                clip-path: ellipse(50% 10% at 50% 50%);
+            0%, 100% {
+                border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
             }
-            25% {
-                clip-path: ellipse(50% 12% at 50% 50%);
+            14% {
+                border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%;
             }
-            50% {
-                clip-path: ellipse(50% 15% at 50% 50%);
+            28% {
+                border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%;
             }
-            75% {
-                clip-path: ellipse(50% 12% at 50% 50%);
+            42% {
+                border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%;
             }
-            100% {
-                clip-path: ellipse(50% 10% at 50% 50%);
+            56% {
+                border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%;
+            }
+            70% {
+                border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%;
+            }
+            84% {
+                border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%;
             }
         }
 
@@ -78,10 +85,10 @@
             <p class="text-lg md:text-2xl mb-8 font-medium">AI Enthusiast | Web Developer | Innovator</p>
             <a href="#about" class="inline-block px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white text-lg rounded-full font-semibold transition-all dark:bg-indigo-500 dark:hover:bg-indigo-600">Explore My Journey</a>
             
-            <!-- Image with dynamically wavy boundaries -->
             <div class="image-container w-40 h-40 mx-auto mt-8 shadow-lg overflow-hidden relative">
                 <img src="me-image.jpg" alt="Navjot Koth" class="w-full h-full">
             </div>
+
 
         </div>
     </header>
@@ -122,6 +129,7 @@
             <p class="text-lg text-gray-700 dark:text-gray-300">Email: <a href="mailto:navjotkoth@gmail.com" class="text-indigo-600 hover:underline dark:text-indigo-400">navjotkoth@gmail.com</a></p>
         </div>
     </footer>
+    <div class="h-16"></div>
 
     <!-- Sticky Navigation Bar -->
     <nav class="bg-cream-200 shadow-lg transition-all duration-300 dark:bg-gray-900 dark:text-white">
