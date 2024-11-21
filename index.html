@@ -150,13 +150,27 @@
         // Theme Toggle Logic
         const themeToggle = document.getElementById('theme-toggle');
         const currentTheme = localStorage.getItem('theme');
-        if (currentTheme === 'dark') document.body.classList.add('dark');
-
+        
+        // Set the initial theme based on saved preference
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark');
+            themeToggle.textContent = '☀️'; // Sun icon for dark mode
+        } else {
+            themeToggle.textContent = '🌙'; // Moon icon for light mode
+        }
+        
+        // Toggle dark mode on button click
         themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark');
-            localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+        
+            // Save theme preference to localStorage
+            const theme = document.body.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+        
+            // Change button text based on the current theme
             themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
         });
+
 
         // Particles.js Initialization
         particlesJS('particles-js', {
