@@ -94,7 +94,7 @@
         }
 
         .toggle.dark-mode {
-            background-color: #4B5563;
+            background-color: #000;
         }
 
         .toggle.dark-mode::after {
@@ -102,13 +102,13 @@
         }
     </style>
 </head>
-<body class="bg-cream-100 text-gray-900 font-sans transition-colors duration-300 dark:bg-gray-800 dark:text-gray-100">
+<body class="bg-white text-black font-sans transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100">
 
     <!-- Particle.js background -->
     <div id="particles-js"></div>
 
     <!-- Header Section -->
-    <header class="relative text-center py-24 text-white">
+    <header class="relative text-center py-24">
         <div class="relative z-10">
             <h1 class="text-5xl md:text-6xl font-bold tracking-wide mb-4">Navjot Koth</h1>
             <p class="text-lg md:text-2xl mb-8 font-medium">AI Enthusiast | Web Developer | Innovator</p>
@@ -121,49 +121,48 @@
     </header>
 
     <!-- About Section -->
-    <section id="about" class="py-16">
+    <section id="about" class="py-16 bg-cream-100 text-black dark:bg-gray-800 dark:text-gray-200">
         <h2 class="text-4xl font-bold text-center text-indigo-700 mb-6 dark:text-indigo-400">About Me</h2>
         <div class="max-w-3xl mx-auto px-6 text-center">
-            <p class="text-xl mb-6 leading-relaxed text-gray-700 dark:text-gray-300">
+            <p class="text-xl mb-6 leading-relaxed">
                 Hi, I’m Navjot Koth. I’m an AI enthusiast, passionate about leveraging technology to create meaningful solutions. 
                 My journey spans from developing scalable web applications to exploring cutting-edge AI techniques. I believe in innovation and 
                 thrive on solving complex problems with a creative outlook. When I’m not coding, I enjoy diving into research and sharing my ideas with the world.
             </p>
-            <p class="text-xl leading-relaxed text-gray-700 dark:text-gray-300">
+            <p class="text-xl leading-relaxed">
                 My mission is to make technology accessible, impactful, and sustainable, empowering individuals and businesses alike.
             </p>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="bg-gray-50 py-16 dark:bg-gray-900">
+    <section id="projects" class="bg-cream-200 py-16 dark:bg-gray-900 dark:text-gray-200">
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="text-3xl font-bold text-indigo-700 mb-8 dark:text-indigo-400">Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <a href="projects/project1/index.html" class="block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow hover:bg-indigo-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
+                <a href="projects/project1/index.html" class="block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow hover:bg-indigo-50 dark:bg-gray-800 dark:hover:bg-gray-700">
                     <h3 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-300">Project 1</h3>
-                    <p class="text-gray-600 mt-2 dark:text-gray-400">A detailed description of Project 1.</p>
+                    <p class="text-black dark:text-gray-400">A detailed description of Project 1.</p>
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <footer id="contact" class="bg-white py-16 dark:bg-gray-800">
+    <footer id="contact" class="bg-white py-16 dark:bg-gray-800 dark:text-gray-200">
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="text-3xl font-bold text-indigo-700 mb-4 dark:text-indigo-400">Contact Me</h2>
-            <p class="text-lg text-gray-700 dark:text-gray-300">Email: <a href="mailto:navjotkoth@gmail.com" class="text-indigo-600 hover:underline dark:text-indigo-400">navjotkoth@gmail.com</a></p>
+            <p class="text-lg">Email: <a href="mailto:navjotkoth@gmail.com" class="text-indigo-600 hover:underline dark:text-indigo-400">navjotkoth@gmail.com</a></p>
         </div>
     </footer>
-    <div class="h-16"></div>
 
     <!-- Sticky Navigation Bar -->
-    <nav class="bg-cream-200 shadow-lg transition-all duration-300 dark:bg-gray-900 dark:text-white">
+    <nav class="bg-cream-300 shadow-lg transition-all duration-300 dark:bg-black dark:text-gray-200">
         <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
             <div class="space-x-6">
-                <a href="#about" class="text-gray-800 hover:text-indigo-600 text-lg font-semibold transition-all dark:text-gray-100 dark:hover:text-indigo-400">About Me</a>
-                <a href="#projects" class="text-gray-800 hover:text-indigo-600 text-lg font-semibold transition-all dark:text-gray-100 dark:hover:text-indigo-400">Projects</a>
-                <a href="#contact" class="text-gray-800 hover:text-indigo-600 text-lg font-semibold transition-all dark:text-gray-100 dark:hover:text-indigo-400">Contact</a>
+                <a href="#about" class="text-black hover:text-indigo-600 dark:text-gray-200 dark:hover:text-indigo-400">About Me</a>
+                <a href="#projects" class="text-black hover:text-indigo-600 dark:text-gray-200 dark:hover:text-indigo-400">Projects</a>
+                <a href="#contact" class="text-black hover:text-indigo-600 dark:text-gray-200 dark:hover:text-indigo-400">Contact</a>
             </div>
             <div id="theme-toggle" class="toggle"></div>
         </div>
@@ -196,15 +195,21 @@
                 shape: { type: "circle" },
                 opacity: { value: 0.5 },
                 size: { value: 3 },
-                line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
-                move: { enable: true, speed: 6 }
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: document.body.classList.contains("dark") ? "#ffffff" : "#000000",
+                    opacity: 0.4,
+                    width: 1,
+                },
+                move: { enable: true, speed: 6 },
             },
             interactivity: {
                 detect_on: "canvas",
                 events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } },
-                modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
+                modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } },
             },
-            retina_detect: true
+            retina_detect: true,
         });
     </script>
 </body>
