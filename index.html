@@ -249,70 +249,99 @@
           }
         }
 
-
-        /* Base Styles for About Section */
-        #about {
+        /* General Section Styles */
+        .section {
           scroll-snap-align: start;
-          scroll-snap-stop: always;
-          height: 100dvh; /* Full dynamic height */
+          padding: 2rem;
+          background: #1e272e;
+          color: white;
+          font-family: Arial, sans-serif;
         }
         
-        #about .content {
-          overflow: hidden;
-          position: fixed;
-          inset: 0;
-          --contrast: 4;
-          --blur: 0.5rem;
-          animation: blink ease-in-out both;
-          animation-timeline: --section;
+        .content {
+          max-width: 800px;
+          margin: 0 auto;
+          text-align: left;
+          animation: fade-in 1.5s ease-in-out;
         }
         
-        /* Blink Animation */
-        @keyframes blink {
-          0%, 100% {
-            filter: blur(var(--blur)) contrast(var(--contrast));
-            opacity: 0;
-            visibility: hidden;
-          }
-        
-          50% {
-            filter: blur(0) contrast(1);
-            opacity: 1;
-            visibility: visible;
-          }
+        /* Title Styling */
+        .section-title {
+          text-align: center;
+          font-size: 2.5rem;
+          margin-bottom: 1.5rem;
+          color: #ffffff;
+          text-transform: uppercase;
+          border-bottom: 2px solid #3498db;
+          display: inline-block;
         }
         
-        /* Timeline Item Styles */
-        #about .timeline {
-          display: flex;
-          flex-direction: column;
-          gap: 2rem;
+        /* Timeline Styling */
+        .timeline {
           position: relative;
-          max-width: 100%;
+          margin: 2rem 0;
+          padding-left: 20px;
+          border-left: 3px solid #3498db;
         }
         
-        #about .timeline-item {
-          padding: 1.5rem;
-          background-color: rgba(0, 0, 0, 0.7);
-          border-radius: 10px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        .timeline-item {
+          margin-bottom: 2rem;
           position: relative;
         }
         
-        #about .timeline-item h3 {
+        .timeline-item::before {
+          content: '';
+          position: absolute;
+          left: -11px;
+          top: 0;
+          width: 20px;
+          height: 20px;
+          background: #3498db;
+          border: 3px solid #ffffff;
+          border-radius: 50%;
+        }
+        
+        .timeline-item h3 {
+          margin: 0;
           font-size: 1.5rem;
-          margin-bottom: 1rem;
+          color: #ffffff;
         }
         
-        #about .timeline-item p {
-          font-size: 1.1rem;
+        .timeline-item p {
+          margin: 0.5rem 0 0;
+          font-size: 1rem;
           line-height: 1.6;
         }
         
-        /* Timeline Indicator */
-        #about .indicator::before {
-          animation-timeline: --main;
-          animation-range: contain;
+        /* Scroll Animation */
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+          .content {
+            padding: 1rem;
+          }
+        
+          .section-title {
+            font-size: 2rem;
+          }
+        
+          .timeline-item h3 {
+            font-size: 1.3rem;
+          }
+        
+          .timeline-item p {
+            font-size: 0.9rem;
+          }
         }
 
         
@@ -413,41 +442,52 @@
     <section id="about" class="section">
       <!-- Content Container for Animation -->
       <div class="content">
-        <!-- Timeline Section -->
+        <h2 class="section-title">About Me</h2>
         <div class="timeline">
           <!-- Timeline Item 1: Early Education -->
           <div class="timeline-item">
             <h3>Early Education</h3>
-            <p>I started my academic journey at CCET (PU, Chandigarh), where I held leadership roles in multiple student chapters and co-founded technical magazines. I later pursued a BSc in Data Science and Applications from IIT Madras.</p>
+            <p>
+              I started my academic journey at CCET (PU, Chandigarh), where I held leadership roles in multiple student chapters and co-founded technical magazines. I later pursued a BSc in Data Science and Applications from IIT Madras.
+            </p>
           </div>
     
           <!-- Timeline Item 2: Interest in Web Development -->
           <div class="timeline-item">
             <h3>Interest in Web Development</h3>
-            <p>I have a strong interest in web development, having worked on various projects for over three years. This interest led me to explore advanced technologies such as voice-to-code systems.</p>
+            <p>
+              I have a strong interest in web development, having worked on various projects for over three years. This interest led me to explore advanced technologies such as voice-to-code systems.
+            </p>
           </div>
     
           <!-- Timeline Item 3: Pursuing Masters -->
           <div class="timeline-item">
             <h3>Pursuing Masters</h3>
-            <p>After completing my BSc from IIT Madras, I am now considering postgraduate programs in Artificial Intelligence and Data Science at top institutions like Oxford and Cambridge.</p>
+            <p>
+              After completing my BSc from IIT Madras, I am now considering postgraduate programs in Artificial Intelligence and Data Science at top institutions like Oxford and Cambridge.
+            </p>
           </div>
     
           <!-- Timeline Item 4: Research Focus -->
           <div class="timeline-item">
             <h3>Research Focus</h3>
-            <p>I am currently working on a research paper on Explainable AI (XAI), specifically focusing on improving the interpretability and trustworthiness of AI systems in autonomous vehicles.</p>
+            <p>
+              I am currently working on a research paper on Explainable AI (XAI), specifically focusing on improving the interpretability and trustworthiness of AI systems in autonomous vehicles.
+            </p>
           </div>
     
           <!-- Timeline Item 5: Future Aspirations -->
           <div class="timeline-item">
             <h3>Future Aspirations</h3>
-            <p>I am also interested in exploring entrepreneurial ventures and have a vision of creating a tech company that integrates advanced AI technologies.</p>
+            <p>
+              I am also interested in exploring entrepreneurial ventures and have a vision of creating a tech company that integrates advanced AI technologies.
+            </p>
           </div>
         </div>
       </div>
     </section>
-
+    
+    
 
     <!-- Projects Section -->
     <section id="projects" class="py-16">
