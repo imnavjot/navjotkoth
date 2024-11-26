@@ -30,43 +30,63 @@
             z-index: 10;
         }
                 
-        .text-lg {
-            font-size: 1.125rem;
+        /* General Styles */
+        .text-5xl {
+            font-size: 3rem;
+            font-weight: 700;
+            position: relative; /* To position the square dot */
         }
-    
+        
+        .text-lg {
+            font-size: 1.5rem;
+        }
+        
+        .font-bold {
+            font-weight: 700;
+        }
+        
         .font-medium {
             font-weight: 500;
         }
-    
+        
         /* Square Dot Styling */
-        .square-dot {
-            color: #666;
-            font-size: 2rem; /* Larger size for the dot */
+        .text-5xl::after {
+            content: ""; /* Generate square dot */
             display: inline-block;
-            margin-left: 0.5rem;
-            transform-origin: center; /* Ensures rotation from the center */
+            width: 20px; /* Size of the square */
+            height: 20px;
+            background-color: #666; /* Square color */
+            margin-left: 8px; /* Spacing from the name */
+            position: absolute;
+            top: 0;
+            transform: translateY(50%) rotate(0deg); /* Center vertically and rotate */
             animation: rotate-dot 2s linear infinite;
         }
-    
-        /* Animation for rotating the square dot */
+        
         @keyframes rotate-dot {
             0% {
-                transform: rotate(0deg);
+                transform: translateY(50%) rotate(0deg);
             }
             100% {
-                transform: rotate(360deg);
+                transform: translateY(50%) rotate(360deg);
             }
         }
-    
+        
         /* Typing Effect */
+        .fixed-text {
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        
         .typing-text {
+            display: inline-block;
             border-right: 2px solid #000;
             white-space: nowrap;
             overflow: hidden;
-            display: inline-block;
-            animation: typing 3s steps(30, end), blink 0.75s step-end infinite;
+            animation: slide-in-out 6s infinite, typing 3s steps(30, end), blink 0.75s step-end infinite;
         }
-    
+        
+        /* Typing Animation */
         @keyframes typing {
             from {
                 width: 0;
@@ -75,12 +95,33 @@
                 width: 100%;
             }
         }
-    
+        
         @keyframes blink {
             50% {
                 border-color: transparent;
             }
         }
+        
+        /* Slide In/Out Animation */
+        @keyframes slide-in-out {
+            0% {
+                transform: translateX(-200px);
+                opacity: 0;
+            }
+            20% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            80% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(200px);
+                opacity: 0;
+            }
+        }
+
             
         .image-container {
             position: relative;
@@ -183,13 +224,14 @@
     <!-- Header Section -->
     <header class="relative text-center py-24 text-white">
         <div class="relative z-10">
-            <h1 class="text-5xl font-bold tracking-wide mb-4">
-                Navjot Koth 
-                <span class="square-dot">▪</span>
+            <h1 class="text-5xl font-bold tracking-wide mb-4 relative">
+                Navjot Koth
             </h1>
             <p class="text-lg font-medium">
-                I am <span id="typing-effect" class="typing-text"></span>
+                <span class="fixed-text">I am</span>
+                <span id="typing-effect" class="typing-text"></span>
             </p>
+
             <a href="#about" class="inline-block px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white text-lg rounded-full font-semibold transition-all">
                 Explore My Journey
             </a>
@@ -309,12 +351,12 @@
             const typingText = document.getElementById("typing-effect");
             const phrases = ["an AI Enthusiast", "a Web Developer", "an Innovator"];
             let currentIndex = 0;
-    
+        
             function typeEffect() {
                 typingText.textContent = ""; // Clear text
                 let phrase = phrases[currentIndex];
                 let i = 0;
-    
+        
                 const typingInterval = setInterval(() => {
                     typingText.textContent += phrase.charAt(i);
                     i++;
@@ -325,11 +367,12 @@
                             typeEffect();
                         }, 2000); // Wait 2 seconds before the next phrase
                     }
-                }, 100); // Adjust typing speed
+                }, 100); // Typing speed
             }
-    
+        
             typeEffect();
         });
+
     </script>
 </body>
 </html>
