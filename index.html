@@ -29,7 +29,11 @@
             width: 100%;
             z-index: 10;
         }
-
+        
+        .txt-rotate > .wrap {
+            border-right: 0.08em solid #666;
+        }
+        
         .image-container {
             position: relative;
             width: 10rem;  /* Adjust the width as needed */
@@ -131,8 +135,13 @@
     <!-- Header Section -->
     <header class="relative text-center py-24 text-white">
         <div class="relative z-10">
-            <h1 class="text-5xl md:text-6xl font-bold tracking-wide mb-4">Navjot Koth</h1>
-            <p class="text-lg md:text-2xl mb-8 font-medium">AI Enthusiast | Web Developer | Innovator</p>
+            <!-- Animated Typing Effect -->
+            <h1 class="text-5xl font-bold tracking-wide mb-4">
+                <span id="name-animation" class="inline-block"></span>
+            </h1>
+            <p class="text-lg mb-8 font-medium">
+                <span class="txt-rotate" data-period="2000" data-rotate='["AI Enthusiast", "Web Developer", "Innovator"]'></span>
+            </p>
             <a href="#about" class="inline-block px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white text-lg rounded-full font-semibold transition-all">
                 Explore My Journey
             </a>
@@ -247,6 +256,74 @@
         function closeModal(projectId) {
             document.getElementById(projectId).style.display = 'none';
         }
+
+        // Typing Effect (TxtRotate)
+        class TxtRotate {
+            constructor(el, toRotate, period) {
+                this.toRotate = toRotate;
+                this.el = el;
+                this.loopNum = 0;
+                this.period = parseInt(period, 10) || 2000;
+                this.txt = '';
+                this.tick();
+                this.isDeleting = false;
+            }
+    
+            tick() {
+                const i = this.loopNum % this.toRotate.length;
+                const fullTxt = this.toRotate[i];
+    
+                this.txt = this.isDeleting
+                    ? fullTxt.substring(0, this.txt.length - 1)
+                    : fullTxt.substring(0, this.txt.length + 1);
+    
+                this.el.innerHTML = `<span class="wrap">${this.txt}</span>`;
+    
+                let delta = 300 - Math.random() * 100;
+    
+                if (this.isDeleting) delta /= 2;
+    
+                if (!this.isDeleting && this.txt === fullTxt) {
+                    delta = this.period;
+                    this.isDeleting = true;
+                } else if (this.isDeleting && this.txt === '') {
+                    this.isDeleting = false;
+                    this.loopNum++;
+                    delta = 500;
+                }
+    
+                setTimeout(() => this.tick(), delta);
+            }
+        }
+    
+        // Sliding Animation for Name
+        function showMainAnimation() {
+            const nameElement = document.getElementById('name-animation');
+            nameElement.textContent = 'Navjot Koth';
+            nameElement.style.opacity = 0;
+            nameElement.style.transform = 'translateY(20px)';
+            nameElement.style.transition = 'opacity 1s ease, transform 1s ease';
+    
+            setTimeout(() => {
+                nameElement.style.opacity = 1;
+                nameElement.style.transform = 'translateY(0)';
+            }, 100); // Trigger the animation slightly after page load
+        }
+    
+        // Initialize Typing Effect and Animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.getElementsByClassName('txt-rotate');
+            for (let i = 0; i < elements.length; i++) {
+                const toRotate = elements[i].getAttribute('data-rotate');
+                const period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                    new TxtRotate(elements[i], JSON.parse(toRotate), period);
+                }
+            }
+    
+            // Apply sliding animation
+            showMainAnimation();
+        });        
     </script>
 </body>
 </html>
