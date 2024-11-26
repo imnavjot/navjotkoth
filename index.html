@@ -257,7 +257,16 @@
         .about-section {
           scroll-snap-type: y mandatory;
           height: 100vh;
-          overflow-y: scroll;
+          overflow: hidden; /* Hides the scrollbar */
+        }
+        
+        .about-section::-webkit-scrollbar {
+          display: none; /* Hides the scrollbar in WebKit browsers */
+        }
+        
+        .about-section > * {
+          height: 100%; /* Ensure content stretches the full height */
+          overflow-y: scroll; /* Enable scrolling on child elements */
         }
         
         .section-title {
