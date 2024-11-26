@@ -29,6 +29,28 @@
             width: 100%;
             z-index: 10;
         }
+            
+        /* Square Dot Styling */
+        .square-dot {
+            color: #666; /* Subtle color for the dot */
+            font-size: 1.2rem;
+            display: inline-block;
+            margin-left: 0.5rem;
+            animation: rotate-dot 1s ease-in-out infinite;
+        }
+    
+        /* Animation for rotating the square dot */
+        @keyframes rotate-dot {
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(180deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }        
         
         .txt-rotate > .wrap {
             border-right: 0.08em solid #666;
@@ -137,10 +159,11 @@
         <div class="relative z-10">
             <!-- Animated Typing Effect -->
             <h1 class="text-5xl font-bold tracking-wide mb-4">
-                <span id="name-animation" class="inline-block"></span>
+                Navjot Koth
+                <span class="square-dot">▪</span>
             </h1>
             <p class="text-lg mb-8 font-medium">
-                <span class="txt-rotate" data-period="2000" data-rotate='["AI Enthusiast", "Web Developer", "Innovator"]'></span>
+                I am <span class="txt-rotate" data-period="2000" data-rotate='["AI Enthusiast", "Web Developer", "Innovator"]'></span>
             </p>
             <a href="#about" class="inline-block px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white text-lg rounded-full font-semibold transition-all">
                 Explore My Journey
