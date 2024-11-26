@@ -250,19 +250,40 @@
         }
 
 
-        /* General Styles for About Section */
+        /* Base Styles for About Section */
         #about {
-          background-color: transparent; /* Ensure no background as per request */
-          padding: 5rem 2rem;
-          color: white;
+          scroll-snap-align: start;
+          scroll-snap-stop: always;
+          height: 100dvh; /* Full dynamic height */
         }
         
-        #about h2 {
-          font-size: 2rem;
-          margin-bottom: 1rem;
+        #about .content {
+          overflow: hidden;
+          position: fixed;
+          inset: 0;
+          --contrast: 4;
+          --blur: 0.5rem;
+          animation: blink ease-in-out both;
+          animation-timeline: --section;
         }
         
-        .timeline {
+        /* Blink Animation */
+        @keyframes blink {
+          0%, 100% {
+            filter: blur(var(--blur)) contrast(var(--contrast));
+            opacity: 0;
+            visibility: hidden;
+          }
+        
+          50% {
+            filter: blur(0) contrast(1);
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+        
+        /* Timeline Item Styles */
+        #about .timeline {
           display: flex;
           flex-direction: column;
           gap: 2rem;
@@ -270,7 +291,7 @@
           max-width: 100%;
         }
         
-        .timeline-item {
+        #about .timeline-item {
           padding: 1.5rem;
           background-color: rgba(0, 0, 0, 0.7);
           border-radius: 10px;
@@ -278,61 +299,20 @@
           position: relative;
         }
         
-        .timeline-item h3 {
+        #about .timeline-item h3 {
           font-size: 1.5rem;
           margin-bottom: 1rem;
         }
         
-        .timeline-item p {
+        #about .timeline-item p {
           font-size: 1.1rem;
           line-height: 1.6;
         }
         
-        /* Add line to indicate the timeline */
-        .timeline-item::before {
-          content: '';
-          position: absolute;
-          left: 50%;
-          top: 0;
-          width: 2px;
-          height: 100%;
-          background-color: #fff;
-          transform: translateX(-50%);
-          z-index: -1;
-        }
-        
-        /* Styling for each timeline dot */
-        .timeline-item::after {
-          content: '';
-          position: absolute;
-          left: 50%;
-          top: 1.5rem;
-          width: 20px;
-          height: 20px;
-          background-color: #fff;
-          border-radius: 50%;
-          transform: translateX(-50%);
-        }
-        
-        /* Timeline animation */
-        @keyframes scroll-animation {
-          0% {
-            transform: translateY(0);
-          }
-          100% {
-            transform: translateY(-100vh);
-          }
-        }
-        
-        .timeline {
-          animation: scroll-animation 10s infinite alternate;
-        }
-        
-        /* Ensure text readability */
-        .text {
-          font-size: 1rem;
-          line-height: 1.6;
-          margin-top: 1rem;
+        /* Timeline Indicator */
+        #about .indicator::before {
+          animation-timeline: --main;
+          animation-range: contain;
         }
 
         
@@ -434,41 +414,43 @@
 
 
     <section id="about" class="section">
+      <!-- Content Container for Animation -->
       <div class="content">
-        <h2><strong>About Me</strong></h2>
-        <div class="text">
-          <p>Welcome to the timeline of my journey, where I share the key milestones and experiences that have shaped me.</p>
+        <!-- Timeline Section -->
+        <div class="timeline">
+          <!-- Timeline Item 1: Early Education -->
+          <div class="timeline-item">
+            <h3>Early Education</h3>
+            <p>I started my academic journey at CCET (PU, Chandigarh), where I held leadership roles in multiple student chapters and co-founded technical magazines. I later pursued a BSc in Data Science and Applications from IIT Madras.</p>
+          </div>
     
-          <!-- Timeline Slider -->
-          <div class="timeline">
-            <section class="timeline-item">
-              <h3 class="timeline-title">Early Education</h3>
-              <p class="timeline-description">I started my academic journey at CCET (PU, Chandigarh), where I held leadership roles in multiple student chapters and co-founded technical magazines. I later pursued a BSc in Data Science and Applications from IIT Madras.</p>
-            </section>
+          <!-- Timeline Item 2: Interest in Web Development -->
+          <div class="timeline-item">
+            <h3>Interest in Web Development</h3>
+            <p>I have a strong interest in web development, having worked on various projects for over three years. This interest led me to explore advanced technologies such as voice-to-code systems.</p>
+          </div>
     
-            <section class="timeline-item">
-              <h3 class="timeline-title">Interest in Web Development</h3>
-              <p class="timeline-description">I have a strong interest in web development, having worked on various projects for over three years. This interest led me to explore advanced technologies such as voice-to-code systems.</p>
-            </section>
+          <!-- Timeline Item 3: Pursuing Masters -->
+          <div class="timeline-item">
+            <h3>Pursuing Masters</h3>
+            <p>After completing my BSc from IIT Madras, I am now considering postgraduate programs in Artificial Intelligence and Data Science at top institutions like Oxford and Cambridge.</p>
+          </div>
     
-            <section class="timeline-item">
-              <h3 class="timeline-title">Pursuing Masters</h3>
-              <p class="timeline-description">After completing my BSc from IIT Madras, I am now considering postgraduate programs in Artificial Intelligence and Data Science at top institutions like Oxford and Cambridge.</p>
-            </section>
+          <!-- Timeline Item 4: Research Focus -->
+          <div class="timeline-item">
+            <h3>Research Focus</h3>
+            <p>I am currently working on a research paper on Explainable AI (XAI), specifically focusing on improving the interpretability and trustworthiness of AI systems in autonomous vehicles.</p>
+          </div>
     
-            <section class="timeline-item">
-              <h3 class="timeline-title">Research Focus</h3>
-              <p class="timeline-description">I am currently working on a research paper on Explainable AI (XAI), specifically focusing on improving the interpretability and trustworthiness of AI systems in autonomous vehicles.</p>
-            </section>
-    
-            <section class="timeline-item">
-              <h3 class="timeline-title">Future Aspirations</h3>
-              <p class="timeline-description">I am also interested in exploring entrepreneurial ventures and have a vision of creating a tech company that integrates advanced AI technologies.</p>
-            </section>
+          <!-- Timeline Item 5: Future Aspirations -->
+          <div class="timeline-item">
+            <h3>Future Aspirations</h3>
+            <p>I am also interested in exploring entrepreneurial ventures and have a vision of creating a tech company that integrates advanced AI technologies.</p>
           </div>
         </div>
       </div>
     </section>
+
 
     <!-- Projects Section -->
     <section id="projects" class="py-16">
