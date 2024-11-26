@@ -249,99 +249,125 @@
           }
         }
 
-        /* General Section Styles */
-        .section {
-          scroll-snap-align: start;
-          padding: 2rem;
-          background: #1e272e;
-          color: white;
-          font-family: Arial, sans-serif;
+        /* General Styles */
+        body {
+          overflow: hidden;
         }
         
-        .content {
-          max-width: 800px;
-          margin: 0 auto;
-          text-align: left;
-          animation: fade-in 1.5s ease-in-out;
+        .about-section {
+          scroll-snap-type: y mandatory;
+          height: 100vh;
+          overflow-y: scroll;
         }
         
-        /* Title Styling */
         .section-title {
-          text-align: center;
           font-size: 2.5rem;
-          margin-bottom: 1.5rem;
-          color: #ffffff;
-          text-transform: uppercase;
-          border-bottom: 2px solid #3498db;
-          display: inline-block;
+          text-align: center;
+          margin: 20px 0;
+          color: #333;
+          animation: fade-in 1s ease-in-out;
         }
         
-        /* Timeline Styling */
-        .timeline {
+        /* Navigation Indicator */
+        .indicator {
+          display: flex;
+          justify-content: center;
+          list-style: none;
+          padding: 0;
+          margin: 10px 0;
+        }
+        
+        .indicator li {
+          margin: 0 10px;
+          animation: pulse 1s infinite alternate;
+        }
+        
+        .indicator li a {
+          text-decoration: none;
+          color: #007BFF;
+          font-weight: bold;
+        }
+        
+        .indicator li a:hover {
+          text-decoration: underline;
+        }
+        
+        /* Sub-section Styles */
+        .sub-section {
+          scroll-snap-align: start;
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #fff;
           position: relative;
-          margin: 2rem 0;
-          padding-left: 20px;
-          border-left: 3px solid #3498db;
+          animation: fade-in 2s ease;
         }
         
-        .timeline-item {
-          margin-bottom: 2rem;
-          position: relative;
+        .sub-section:nth-child(even) {
+          background-color: #f0f0f0;
         }
         
-        .timeline-item::before {
-          content: '';
-          position: absolute;
-          left: -11px;
-          top: 0;
-          width: 20px;
-          height: 20px;
-          background: #3498db;
-          border: 3px solid #ffffff;
-          border-radius: 50%;
+        .sub-section .content {
+          text-align: center;
+          animation: blink 2s infinite;
         }
         
-        .timeline-item h3 {
-          margin: 0;
-          font-size: 1.5rem;
-          color: #ffffff;
-        }
-        
-        .timeline-item p {
-          margin: 0.5rem 0 0;
-          font-size: 1rem;
+        .text p {
+          margin: 10px 0;
           line-height: 1.6;
+          font-size: 1rem;
+          color: #666;
         }
         
-        /* Scroll Animation */
+        /* Animation Keyframes */
         @keyframes fade-in {
-          from {
+          0% {
             opacity: 0;
             transform: translateY(20px);
           }
-          to {
+          100% {
             opacity: 1;
             transform: translateY(0);
           }
         }
         
-        /* Responsive Design */
-        @media (max-width: 768px) {
-          .content {
-            padding: 1rem;
+        @keyframes pulse {
+          0% {
+            transform: scale(1);
+            opacity: 0.7;
           }
+          100% {
+            transform: scale(1.1);
+            opacity: 1;
+          }
+        }
         
-          .section-title {
-            font-size: 2rem;
+        @keyframes blink {
+          0%, 50% {
+            opacity: 1;
           }
+          25%, 75% {
+            opacity: 0.5;
+          }
+          100% {
+            opacity: 0.7;
+          }
+        }
         
-          .timeline-item h3 {
-            font-size: 1.3rem;
+        @keyframes fade-effect {
+          from {
+            background-color: #fff;
           }
+          to {
+            background-color: #333;
+            color: #fff;
+          }
+        }
         
-          .timeline-item p {
-            font-size: 0.9rem;
-          }
+        /* Applying Fade Effect to Sections */
+        .sub-section:nth-child(3) {
+          animation: fade-effect 3s infinite alternate;
         }
 
         
@@ -439,55 +465,64 @@
     </header>
 
 
-    <section id="about" class="section">
-      <!-- Content Container for Animation -->
-      <div class="content">
-        <h2 class="section-title">About Me</h2>
-        <div class="timeline">
-          <!-- Timeline Item 1: Early Education -->
-          <div class="timeline-item">
-            <h3>Early Education</h3>
-            <p>
-              I started my academic journey at CCET (PU, Chandigarh), where I held leadership roles in multiple student chapters and co-founded technical magazines. I later pursued a BSc in Data Science and Applications from IIT Madras.
-            </p>
-          </div>
-    
-          <!-- Timeline Item 2: Interest in Web Development -->
-          <div class="timeline-item">
-            <h3>Interest in Web Development</h3>
-            <p>
-              I have a strong interest in web development, having worked on various projects for over three years. This interest led me to explore advanced technologies such as voice-to-code systems.
-            </p>
-          </div>
-    
-          <!-- Timeline Item 3: Pursuing Masters -->
-          <div class="timeline-item">
-            <h3>Pursuing Masters</h3>
-            <p>
-              After completing my BSc from IIT Madras, I am now considering postgraduate programs in Artificial Intelligence and Data Science at top institutions like Oxford and Cambridge.
-            </p>
-          </div>
-    
-          <!-- Timeline Item 4: Research Focus -->
-          <div class="timeline-item">
-            <h3>Research Focus</h3>
-            <p>
-              I am currently working on a research paper on Explainable AI (XAI), specifically focusing on improving the interpretability and trustworthiness of AI systems in autonomous vehicles.
-            </p>
-          </div>
-    
-          <!-- Timeline Item 5: Future Aspirations -->
-          <div class="timeline-item">
-            <h3>Future Aspirations</h3>
-            <p>
-              I am also interested in exploring entrepreneurial ventures and have a vision of creating a tech company that integrates advanced AI technologies.
-            </p>
-          </div>
+      <section id="about" class="about-section">
+        <div class="content">
+          <h2 class="section-title">About Me</h2>
+          <header class="site-header">
+            <nav>
+              <ul class="indicator">
+                <li><a href="#snapping"><span class="sr-only">Snapping</span></a></li>
+                <li><a href="#scrolling"><span class="sr-only">Scrolling</span></a></li>
+                <li><a href="#layout"><span class="sr-only">Layout</span></a></li>
+                <li><a href="#transition"><span class="sr-only">Transition</span></a></li>
+                <li><a href="#caveats"><span class="sr-only">Caveats</span></a></li>
+              </ul>
+            </nav>
+          </header>
+          <main>
+            <div id="snapping" class="sub-section">
+              <div class="content">
+                <h2><strong>First</strong>, we set up the <em>snapping</em> points</h2>
+                <div class="text">
+                  <p>We set up scroll snapping with CSS properties like <code>scroll-snap-align</code>.</p>
+                </div>
+              </div>
+            </div>
+            <div id="scrolling" class="sub-section">
+              <div class="content">
+                <h2><strong>Next</strong>, we add <em>scrolling</em> animations</h2>
+                <div class="text">
+                  <p>Animations are tied to the scroll position using view timelines.</p>
+                </div>
+              </div>
+            </div>
+            <div id="layout" class="sub-section">
+              <div class="content">
+                <h2><strong>Then</strong>, we implement a <em>fixed layout</em></h2>
+                <div class="text">
+                  <p>Fixed-position elements allow seamless animations between sections.</p>
+                </div>
+              </div>
+            </div>
+            <div id="transition" class="sub-section">
+              <div class="content">
+                <h2><strong>Finally</strong>, we apply <em>transitions</em></h2>
+                <div class="text">
+                  <p>Transitions smoothly change properties during the scroll event.</p>
+                </div>
+              </div>
+            </div>
+            <div id="caveats" class="sub-section">
+              <div class="content">
+                <h2><strong>Caveats</strong></h2>
+                <div class="text">
+                  <p>Scroll animations can have limitations, but they enhance UX.</p>
+                </div>
+              </div>
+            </div>
+          </main>
         </div>
-      </div>
-    </section>
-    
-    
+      </section>
 
     <!-- Projects Section -->
     <section id="projects" class="py-16">
