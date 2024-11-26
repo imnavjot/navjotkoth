@@ -57,7 +57,7 @@
             background-color: #ec0053; /* Square color */
             margin-left: 8px; /* Spacing from the name */
             position: absolute;
-            bottom: 15px;
+            bottom: 13px;
             transform: translateY(50%) rotate(0deg); /* Center vertically and rotate */
             animation: rotate-dot 2s linear infinite;
         }
@@ -249,6 +249,93 @@
           }
         }
 
+
+        /* General Styles for About Section */
+        #about {
+          background-color: transparent; /* Ensure no background as per request */
+          padding: 5rem 2rem;
+          color: white;
+        }
+        
+        #about h2 {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+        }
+        
+        .timeline {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+          position: relative;
+          max-width: 100%;
+        }
+        
+        .timeline-item {
+          padding: 1.5rem;
+          background-color: rgba(0, 0, 0, 0.7);
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+          position: relative;
+        }
+        
+        .timeline-item h3 {
+          font-size: 1.5rem;
+          margin-bottom: 1rem;
+        }
+        
+        .timeline-item p {
+          font-size: 1.1rem;
+          line-height: 1.6;
+        }
+        
+        /* Add line to indicate the timeline */
+        .timeline-item::before {
+          content: '';
+          position: absolute;
+          left: 50%;
+          top: 0;
+          width: 2px;
+          height: 100%;
+          background-color: #fff;
+          transform: translateX(-50%);
+          z-index: -1;
+        }
+        
+        /* Styling for each timeline dot */
+        .timeline-item::after {
+          content: '';
+          position: absolute;
+          left: 50%;
+          top: 1.5rem;
+          width: 20px;
+          height: 20px;
+          background-color: #fff;
+          border-radius: 50%;
+          transform: translateX(-50%);
+        }
+        
+        /* Timeline animation */
+        @keyframes scroll-animation {
+          0% {
+            transform: translateY(0);
+          }
+          100% {
+            transform: translateY(-100vh);
+          }
+        }
+        
+        .timeline {
+          animation: scroll-animation 10s infinite alternate;
+        }
+        
+        /* Ensure text readability */
+        .text {
+          font-size: 1rem;
+          line-height: 1.6;
+          margin-top: 1rem;
+        }
+
+        
         /* Modal styles */
         .modal {
             display: none;
@@ -307,24 +394,29 @@
     <!-- Particle.js background -->
     <div id="particles-js"></div>
 
-    <!-- Header Section -->
-    <header class="relative text-center py-24 text-white">
-        <div class="relative z-10">
-            <h1 class="text-5xl font-bold tracking-wide mb-4 relative" style="font-family: Poppins, sans-serif;">
-                NAVJOT KOTH
-            </h1>
-            <p class="text-lg font-medium">
-                <span class="fixed-text">I am</span>
-                <span id="typing-effect" class="typing-text"></span>
-            </p>
-
-            <a href="#about" class="inline-block px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white text-lg rounded-full font-semibold transition-all">
-                Explore My Journey
-            </a>
-            <div class="image-container w-40 h-40 mx-auto mt-8 shadow-lg overflow-hidden relative">
-                <img src="image.png" alt="Navjot Koth" class="w-full h-full">
+        <header class="relative text-center py-24 text-white h-screen flex flex-col justify-between">
+            <div class="relative z-10">
+                <!-- Name at the top -->
+                <h1 class="text-5xl font-bold tracking-wide mb-4 relative" style="font-family: Poppins, sans-serif;">
+                    NAVJOT KOTH
+                </h1>
             </div>
-        </div>
+        
+            <!-- Content (near bottom) -->
+            <div class="mt-auto mb-8"> <!-- mt-auto ensures it moves towards the bottom -->
+                <p class="text-lg font-medium">
+                    <span class="fixed-text">I am</span>
+                    <span id="typing-effect" class="typing-text"></span>
+                </p>
+        
+                <a href="#about" class="inline-block px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white text-lg rounded-full font-semibold transition-all">
+                    Explore My Journey
+                </a>
+                <div class="image-container w-40 h-40 mx-auto mt-8 shadow-lg overflow-hidden relative">
+                    <img src="image.png" alt="Navjot Koth" class="w-full h-full">
+                </div>
+            </div>
+
             <!-- Scroll Indicator -->
             <a href="#about">
                 <div id="mouse-scroll">
@@ -341,19 +433,41 @@
     </header>
 
 
-    <!-- About Section -->
-    <section id="about" class="py-16">
-        <h2 class="text-4xl font-bold text-center text-indigo-400 mb-6">About Me</h2>
-        <div class="max-w-3xl mx-auto px-6 text-center">
-            <p class="text-xl mb-6 leading-relaxed text-gray-300">
-                Hi, I’m Navjot Koth. I’m an AI enthusiast, passionate about leveraging technology to create meaningful solutions. 
-                My journey spans from developing scalable web applications to exploring cutting-edge AI techniques. I believe in innovation and 
-                thrive on solving complex problems with a creative outlook. When I’m not coding, I enjoy diving into research and sharing my ideas with the world.
-            </p>
-            <p class="text-xl leading-relaxed text-gray-300">
-                My mission is to make technology accessible, impactful, and sustainable, empowering individuals and businesses alike.
-            </p>
+    <section id="about" class="section">
+      <div class="content">
+        <h2><strong>About Me</strong></h2>
+        <div class="text">
+          <p>Welcome to the timeline of my journey, where I share the key milestones and experiences that have shaped me.</p>
+    
+          <!-- Timeline Slider -->
+          <div class="timeline">
+            <section class="timeline-item">
+              <h3 class="timeline-title">Early Education</h3>
+              <p class="timeline-description">I started my academic journey at CCET (PU, Chandigarh), where I held leadership roles in multiple student chapters and co-founded technical magazines. I later pursued a BSc in Data Science and Applications from IIT Madras.</p>
+            </section>
+    
+            <section class="timeline-item">
+              <h3 class="timeline-title">Interest in Web Development</h3>
+              <p class="timeline-description">I have a strong interest in web development, having worked on various projects for over three years. This interest led me to explore advanced technologies such as voice-to-code systems.</p>
+            </section>
+    
+            <section class="timeline-item">
+              <h3 class="timeline-title">Pursuing Masters</h3>
+              <p class="timeline-description">After completing my BSc from IIT Madras, I am now considering postgraduate programs in Artificial Intelligence and Data Science at top institutions like Oxford and Cambridge.</p>
+            </section>
+    
+            <section class="timeline-item">
+              <h3 class="timeline-title">Research Focus</h3>
+              <p class="timeline-description">I am currently working on a research paper on Explainable AI (XAI), specifically focusing on improving the interpretability and trustworthiness of AI systems in autonomous vehicles.</p>
+            </section>
+    
+            <section class="timeline-item">
+              <h3 class="timeline-title">Future Aspirations</h3>
+              <p class="timeline-description">I am also interested in exploring entrepreneurial ventures and have a vision of creating a tech company that integrates advanced AI technologies.</p>
+            </section>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Projects Section -->
