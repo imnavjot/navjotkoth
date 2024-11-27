@@ -319,56 +319,99 @@
         }
          
 
+                
+        /* General Layout */
+        #about {
+          display: flex;
+          flex-direction: column;
+          height: 100vh;
+          overflow: hidden;
+        }
         
         .about-section {
-          padding: 50px 10%;
-          background-color: var(--color-bg);
-          color: var(--color-text);
-          font-family: var(--font-main);
+          position: relative;
+          width: 100%;
+          overflow-y: scroll;
         }
         
-        .section-title {
-          font-size: 3rem;
-          font-family: var(--font-heading);
-          text-align: center;
-          color: var(--color-primary);
-          margin-bottom: 30px;
-        }
-        
-        .sub-section {
-          margin: 30px 0;
+        .section {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
           padding: 20px;
-          background-color: var(--color-secondary);
-          color: #fff;
-          border-radius: 10px;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-          transition: transform var(--time-animation), background-color var(--time-animation);
+          transition: transform 0.5s ease;
         }
         
-        .sub-section:hover {
-          transform: scale(1.05);
-          background-color: #6a2f41;
-        }
-        
-        .sub-section h2 {
+        .home {
           font-size: 2rem;
-          font-family: var(--font-heading);
-          margin-bottom: 10px;
+          font-weight: bold;
+          text-align: center;
+          margin-top: 20px;
         }
         
-        .sub-section .description {
+        .subsection {
+          max-width: 800px;
+          width: 100%;
+          margin: 0 auto;
+        }
+        
+        .content h2 {
+          font-size: 2rem;
+          margin-bottom: 15px;
+        }
+        
+        .content p {
           font-size: 1.2rem;
           line-height: 1.6;
         }
         
-        .highlight {
-          color: var(--color-primary);
-          font-size: 2.5rem;
+        /* Scroll Behavior */
+        .about-section {
+          scroll-snap-type: y mandatory;
         }
         
-        .emphasis {
-          color: var(--color-secondary);
+        .section {
+          scroll-snap-align: start;
+          scroll-snap-stop: always;
+        }
+        
+        .section.s1 {
+          background-color: #f0f0f0;
+        }
+        
+        .section.s2 {
+          background-color: #e9f7f9;
+        }
+        
+        .section.s3 {
+          background-color: #fff8e1;
+        }
+        
+        .section.s4 {
+          background-color: #f1f8e9;
+        }
+        
+        .section.s5 {
+          background-color: #f9e9e9;
+        }
+        
+        .section.s6 {
+          background-color: #eaf9f9;
+        }
+        
+        .section.s7 {
+          background-color: #fff5e6;
+        }
+        
+        .content h2 {
           font-weight: bold;
+          color: #333;
+        }
+        
+        .content p {
+          color: #555;
         }
         
 
@@ -479,38 +522,74 @@
     </section>    
     
     <section id="about" class="about-section">
-      <div class="content">
-        <h2 class="section-title">About Me</h2>
-        <main>
-          <div id="snapping" class="sub-section">
-            <div class="content">
-              <h2><span class="highlight">Who</span> I Am</h2>
-              <p class="description">
-                Passionate about <strong>innovation</strong> and <strong>design</strong>, I thrive in creating
-                impactful solutions. Driven by <span class="emphasis">curiosity</span> and a love for learning.
-              </p>
-            </div>
+      <!-- First Section: Introduction -->
+      <div class="section s1">
+        <div class="home">
+          <span>About Me</span>
+        </div>
+      </div>
+    
+      <!-- Second Section: Early Life -->
+      <div class="section s2">
+        <div class="subsection" id="early-life">
+          <div class="content">
+            <h2>My Early Life</h2>
+            <p>I was born and raised in Chandigarh, India. From a young age, I developed an interest in technology and problem-solving, which eventually led me to pursue a career in Data Science and Machine Learning.</p>
           </div>
-          <div id="scrolling" class="sub-section">
-            <div class="content">
-              <h2><span class="highlight">What</span> I Do</h2>
-              <p class="description">
-                I specialize in crafting engaging user experiences with <em>cutting-edge</em> technologies and a touch of creativity.
-              </p>
-            </div>
+        </div>
+      </div>
+    
+      <!-- Third Section: Education -->
+      <div class="section s3">
+        <div class="subsection" id="education">
+          <div class="content">
+            <h2>My Education Journey</h2>
+            <p>I completed my BSc in Data Science and Applications from IIT Madras, where I also worked on several projects related to AI and Machine Learning. This academic experience was foundational in shaping my career goals.</p>
           </div>
-          <div id="layout" class="sub-section">
-            <div class="content">
-              <h2><span class="highlight">How</span> I Work</h2>
-              <p class="description">
-                Focused on <strong>collaboration</strong>, I ensure seamless integration of ideas to deliver exceptional results.
-              </p>
-            </div>
+        </div>
+      </div>
+    
+      <!-- Fourth Section: Career Goals -->
+      <div class="section s4">
+        <div class="subsection" id="career-goals">
+          <div class="content">
+            <h2>Career Aspirations</h2>
+            <p>I am passionate about Artificial Intelligence and Data Science, and I aim to contribute to the development of AI systems that are interpretable and trustworthy. I am currently exploring opportunities for further studies in AI, with a particular focus on autonomous vehicles.</p>
           </div>
-        </main>
+        </div>
+      </div>
+    
+      <!-- Fifth Section: UPSC Preparation -->
+      <div class="section s5">
+        <div class="subsection" id="upsc-prep">
+          <div class="content">
+            <h2>Preparing for UPSC Civil Services</h2>
+            <p>Alongside my technical studies, I am preparing for the UPSC civil services examination, aiming to make a difference in India's governance and policy-making processes through my technical and analytical expertise.</p>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Sixth Section: Interests and Hobbies -->
+      <div class="section s6">
+        <div class="subsection" id="interests">
+          <div class="content">
+            <h2>My Interests & Hobbies</h2>
+            <p>In addition to technology and education, I am interested in entrepreneurship and have aspirations to start my own company. I also enjoy reading about advancements in AI and machine learning and keeping up with new trends in these fields.</p>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Seventh Section: Future Goals -->
+      <div class="section s7">
+        <div class="subsection" id="future-goals">
+          <div class="content">
+            <h2>Future Goals</h2>
+            <p>Looking forward, I hope to contribute to the AI research community, pursue a master's in Data Science or AI from a renowned institution, and help shape the future of technology through innovation and leadership.</p>
+          </div>
+        </div>
       </div>
     </section>
-
+    
 
     <!-- Projects Section -->
     <section id="projects" class="py-16">
@@ -722,14 +801,34 @@
             }
           })();
 
-        document.querySelectorAll('.sub-section').forEach((section, index) => {
-          section.addEventListener('click', () => {
-            window.scrollTo({
-              top: document.getElementById(section.id).offsetTop,
-              behavior: 'smooth',
-            });
+        document.addEventListener("DOMContentLoaded", function() {
+          const sections = document.querySelectorAll('.section');
+          let activeIndex = 0;
+        
+          // Optional: Smooth scroll to the next section when scrolling
+          document.querySelector('#about').addEventListener('wheel', function(event) {
+            if (event.deltaY > 0) {
+              // Scroll down
+              if (activeIndex < sections.length - 1) {
+                activeIndex++;
+                scrollToSection(activeIndex);
+              }
+            } else {
+              // Scroll up
+              if (activeIndex > 0) {
+                activeIndex--;
+                scrollToSection(activeIndex);
+              }
+            }
           });
+        
+          // Function to scroll to a specific section
+          function scrollToSection(index) {
+            const section = sections[index];
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
         });
+        
 
     </script>
 </body>
