@@ -318,6 +318,17 @@
           text-decoration: none;
         }
          
+        
+        /* Resetting body and html margin and padding */
+        html, body {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          overflow: hidden;
+          background-color: #121212; /* Dark background for the body */
+          color: #e0e0e0; /* Light text color */
+        }
+        
         /* Set the #about section to take full height and handle scrolling */
         #about {
           height: 100%;
@@ -327,7 +338,7 @@
           scroll-snap-type: y mandatory; /* Ensure snap scroll behavior */
           overflow-y: auto; /* Allow vertical scrolling */
         }
-        
+
         /* Each section takes up the full height of the screen */
         .about-section .section {
           height: 100vh; /* Each section takes 100% of viewport height */
@@ -339,17 +350,19 @@
           padding: 20px;
           box-sizing: border-box;
           transition: transform 0.5s ease;
+          background-color: #1e1e1e; /* Dark background for each section */
+          border-bottom: 1px solid #333; /* Darker border between sections */
         }
-
-        /* Set distinct background colors for each section for clarity */
-        .section.s1 { background-color: #f0f0f0; }
-        .section.s2 { background-color: #e9f7f9; }
-        .section.s3 { background-color: #fff8e1; }
-        .section.s4 { background-color: #f1f8e9; }
-        .section.s5 { background-color: #f9e9e9; }
-        .section.s6 { background-color: #eaf9f9; }
-        .section.s7 { background-color: #fff5e6; }
         
+        /* Background color for each section */
+        .section.s1 { background-color: #1c1c1c; }
+        .section.s2 { background-color: #232323; }
+        .section.s3 { background-color: #2a2a2a; }
+        .section.s4 { background-color: #303030; }
+        .section.s5 { background-color: #353535; }
+        .section.s6 { background-color: #3a3a3a; }
+        .section.s7 { background-color: #3f3f3f; }
+
         /* Styling for the content inside each subsection */
         .subsection {
           max-width: 800px;
@@ -360,22 +373,49 @@
         .content h2 {
           font-size: 2rem;
           margin-bottom: 15px;
+          color: #e0e0e0; /* Light color for the headings */
         }
-
+        
         .content p {
           font-size: 1.2rem;
           line-height: 1.6;
-          color: #333;
+          color: #b0b0b0; /* Lighter text for paragraphs */
         }
-        
-        /* Styling for header content */
+
+        /* Header content styling */
         .home {
-          font-size: 2rem;
+          font-size: 2.5rem;
           font-weight: bold;
           text-align: center;
           margin-top: 20px;
+          color: #ffffff; /* White color for the header */
         }
-      
+        
+        /* Style the links to look distinct in dark mode */
+        a {
+          color: #03a9f4; /* Light blue for links */
+          text-decoration: none;
+          transition: color 0.3s ease;
+        }
+        
+        a:hover {
+          color: #80d4ff; /* Lighter blue when hovered */
+        }
+        
+        /* Scrollbar customization for dark mode */
+        ::-webkit-scrollbar {
+          width: 8px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+          background-color: #888;
+          border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+          background-color: #555;
+        }
+ 
         /* Modal styles */
         .modal {
             display: none;
@@ -764,30 +804,54 @@
 
         document.addEventListener("DOMContentLoaded", function() {
           const sections = document.querySelectorAll('.section');
-          let activeIndex = 0;
+          let currentSectionIndex = 0;
         
-          // Optional: Scroll through sections on wheel scroll
-          document.querySelector('#about').addEventListener('wheel', function(event) {
-            if (event.deltaY > 0) {
-              // Scroll down
-              if (activeIndex < sections.length - 1) {
-                activeIndex++;
-                scrollToSection(activeIndex);
+          // Function to go to a specific section
+          function goToSection(index) {
+            if (index < 0 || index >= sections.length) return; // Prevent out of bounds
+            currentSectionIndex = index;
+            const targetSection = sections[index];
+            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        
+          // Listen for scroll events and move to the next/previous section
+          let isThrottling = false;
+        
+          window.addEventListener('wheel', function(event) {
+            if (isThrottling) return;
+        
+            if (event.deltaY > 0) { // Scroll down
+              if (currentSectionIndex < sections.length - 1) {
+                goToSection(currentSectionIndex + 1);
               }
-            } else {
-              // Scroll up
-              if (activeIndex > 0) {
-                activeIndex--;
-                scrollToSection(activeIndex);
+            } else if (event.deltaY < 0) { // Scroll up
+              if (currentSectionIndex > 0) {
+                goToSection(currentSectionIndex - 1);
+              }
+            }
+        
+            // Throttle the scrolling to prevent it from being too fast
+            isThrottling = true;
+            setTimeout(function() {
+              isThrottling = false;
+            }, 500); // Adjust delay time as necessary (e.g., 500ms)
+          });
+        
+          // Listen for keyboard navigation (Arrow Up and Arrow Down)
+          window.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowDown') {
+              if (currentSectionIndex < sections.length - 1) {
+                goToSection(currentSectionIndex + 1);
+              }
+            } else if (event.key === 'ArrowUp') {
+              if (currentSectionIndex > 0) {
+                goToSection(currentSectionIndex - 1);
               }
             }
           });
-
-          // Function to scroll to a specific section
-          function scrollToSection(index) {
-            const section = sections[index];
-            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
+        
+          // Start by displaying the first section
+          goToSection(currentSectionIndex);
         });
 
             
