@@ -225,8 +225,11 @@
         .typing-section .wrapper .container {
           position: relative;
           width: 300px;
-          height: 200px;
-          margin: auto;
+          height: 300px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) translateY(20px) scale(1.5);
+          overflow: hidden;
         }
 
         
@@ -234,6 +237,7 @@
           position: absolute;
           font-family: 'Raleway', sans-serif;
           font-size: 25px;
+          font-weight: bold  
           line-height: 1;
           color: #FFFFFF;
         }
@@ -262,7 +266,7 @@
         
         .typing-section .wrapper [data-typing="with"] {
           top: 100px;
-          left: 190px;
+          left: 200px;
           font-size: 36px;
           transform: rotate(90deg);
           background: #fff;
@@ -271,8 +275,8 @@
         }
         
         .typing-section .wrapper [data-typing="javascript"] {
-          top: 145px;
-          left: 120px;
+          top: 140px;
+          left: 110px;
           transform: rotate(90deg);
           font-size: 35px;
         }
