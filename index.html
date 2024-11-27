@@ -380,6 +380,60 @@
           margin-top: 20px;
           color: #ffffff;  
         }
+
+        /* General styling */
+        .section.s1 .home {
+          text-align: center;
+          margin-top: 50px;
+        }
+        
+        .section.s1 .cv-section {
+          margin-top: 20px;
+          text-align: center;
+        }
+        
+        .cv-button {
+          display: inline-block;
+          padding: 10px 20px;
+          background-color: #1a73e8; /* Blue background for the button */
+          color: white;
+          text-decoration: none;
+          border-radius: 5px;
+          font-size: 16px;
+          transition: background-color 0.3s ease;
+        }
+
+        .cv-button:hover {
+          background-color: #0c59b3; /* Darker blue on hover */
+        }
+        
+        /* Styling for academic credentials */
+        .credentials {
+          text-align: center;
+          margin-top: 40px;
+        }
+        
+        .credentials h3 {
+          font-size: 24px;
+          font-weight: bold;
+          color: #333;
+        }
+        
+        .credentials p {
+          font-size: 18px;
+          color: #555;
+        }
+        
+        .iit-madras-logo {
+          margin-top: 20px;
+        }
+        
+        .iit-logo {
+          max-width: 150px; /* You can adjust the size of the logo */
+          height: auto;
+          margin-top: 10px;
+        }
+        
         /* Style the links to look distinct in dark mode */
         a {
           color: #03a9f4; /* Light blue for links */
@@ -515,11 +569,26 @@
     
     <section id="about" class="about-section">
       <!-- Section 1: Introduction -->
-      <div class="section s1">
-        <div class="home">
-          <span>About Me</span>
+        <div class="section s1">
+          <div class="home">
+            <span>About Me</span>
+            
+            <!-- Add CV Button -->
+            <div class="cv-section">
+              <a href="path_to_your_cv.pdf" target="_blank" class="cv-button">Download My CV</a>
+            </div>
+        
+            <!-- Academic Credentials Section -->
+            <div class="credentials">
+              <h3>My Academic Credentials</h3>
+              <p>Bachelor of Science (BSc) in Programming and Data Science</p>
+              <div class="iit-madras-logo">
+                <img src="IIT_Madras_Logo.svg" alt="IIT Madras Logo" class="iit-logo">
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+
     
       <!-- Section 2: Early Life -->
       <div class="section s2">
