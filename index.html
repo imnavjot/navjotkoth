@@ -381,15 +381,21 @@
           color: #ffffff;  
         }
 
+
         /* General styling */
         .section.s1 .home {
           text-align: center;
           margin-top: 50px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
         }
         
-        .section.s1 .cv-section {
+        /* CV Button aligned to the right */
+        .cv-section {
+          align-self: flex-end; /* Align the CV button to the right */
           margin-top: 20px;
-          text-align: center;
         }
         
         .cv-button {
@@ -407,30 +413,31 @@
           background-color: #0c59b3; /* Darker blue on hover */
         }
         
-        /* Styling for academic credentials */
+        /* Styling for academic credentials aligned to the left */
         .credentials {
-          text-align: center;
+          text-align: left; /* Left align the text */
           margin-top: 40px;
+          width: 100%;
+          max-width: 800px; /* Limit the width of the credentials section */
+          margin-left: auto;
+          margin-right: auto; /* Center the section */
         }
         
         .credentials h3 {
+          margin-bottom: 20px;
           font-size: 24px;
           font-weight: bold;
-          color: #333;
         }
-        
-        .credentials p {
-          font-size: 18px;
-          color: #555;
-        }
-        
-        .iit-madras-logo {
-          margin-top: 20px;
-        }
-        
+
+        /* Logo styling */
         .iit-logo {
-          max-width: 150px; /* You can adjust the size of the logo */
+          width: 100px; /* Adjust the logo size as needed */
           height: auto;
+          margin-top: 10px;
+        }
+        
+        /* Styling for each logo container */
+        .iit-madras-logo, .iit-patna-logo {
           margin-top: 10px;
         }
         
@@ -573,17 +580,21 @@
           <div class="home">
             <span>About Me</span>
             
-            <!-- Add CV Button -->
+            <!-- Add CV Button on the right side -->
             <div class="cv-section">
               <a href="path_to_your_cv.pdf" target="_blank" class="cv-button">Download My CV</a>
             </div>
         
-            <!-- Academic Credentials Section -->
+            <!-- Academic Credentials Section (left-aligned) -->
             <div class="credentials">
               <h3>My Academic Credentials</h3>
               <p>Bachelor of Science (BSc) in Programming and Data Science</p>
               <div class="iit-madras-logo">
                 <img src="IIT_Madras_Logo.svg.png" alt="IIT Madras Logo" class="iit-logo">
+              </div>
+              <p>Master of Science (MS) in Artificial Intelligence and Cyber Security</p>
+              <div class="iit-patna-logo">
+                <img src="IIT_Madras_Logo.svg.png" alt="IIT Patna Logo" class="iit-logo">
               </div>
             </div>
           </div>
