@@ -203,12 +203,17 @@
 
         .typing-section {
           position: relative;
-          padding: 60px 60px;
+          width: 100%; /* Full width */
+          height: 100vh; /* Full height of the viewport */
+          padding: 0; /* Remove additional padding */
           text-align: center;
           display: flex;
           justify-content: center;
           align-items: center;
+          box-sizing: border-box; /* Ensures consistent sizing */
+          overflow: hidden; /* Prevent content from overflowing */
         }
+
         
         .typing-section .wrapper {
           position: relative;
