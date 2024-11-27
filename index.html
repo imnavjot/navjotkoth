@@ -200,6 +200,7 @@
           }
         }
         
+
         .typing-section {
           position: relative;
           padding: 50px 50px;
@@ -207,26 +208,19 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          box-sizing: border-box; /* Ensure padding doesn't cause overflow */
-          width: 100%; /* Make it responsive */
-          height: 100vh; /* Full viewport height */
-          overflow: hidden; /* Prevents any overflow */
         }
         
         .typing-section .wrapper {
           position: relative;
           width: 100%;
-          max-width: 100%; /* Allow the wrapper to adjust to available space */
+          max-width: 300px;
         }
-
+        
         .typing-section .wrapper .container {
           position: relative;
-          width: 100%;
-          height: auto; /* Height adjusts based on content */
-          margin: 0 auto;
-          padding: 20px;
-          box-sizing: border-box; /* Prevents padding from causing overflow */
-          overflow: hidden; /* Prevent overflow if content is too large */
+          width: 300px;
+          height: 300px;
+          margin: auto;
         }
 
         
