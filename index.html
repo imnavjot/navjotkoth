@@ -318,41 +318,39 @@
           text-decoration: none;
         }
          
-        /* General Layout */
+        /* Set the #about section to take full height and handle scrolling */
         #about {
-          display: flex;
-          flex-direction: column;
-          height: 100vh;
-          overflow: hidden;
-        }
-        
-        .about-section {
-          display: flex;
-          flex-direction: column;
           height: 100%;
-          scroll-snap-type: y mandatory; /* Enables snap scrolling */
-          overflow-y: auto;
-        }
-        
-        .section {
           display: flex;
           flex-direction: column;
+          overflow: hidden;
+          scroll-snap-type: y mandatory; /* Ensure snap scroll behavior */
+          overflow-y: auto; /* Allow vertical scrolling */
+        }
+        
+        /* Each section takes up the full height of the screen */
+        .about-section .section {
+          height: 100vh; /* Each section takes 100% of viewport height */
+          display: flex;
           justify-content: center;
           align-items: center;
-          height: 100vh; /* Each section takes up the full height of the screen */
+          flex-direction: column;
+          scroll-snap-align: start; /* Ensure sections snap into place */
           padding: 20px;
-          scroll-snap-align: start; /* Ensures the section snaps into place */
+          box-sizing: border-box;
           transition: transform 0.5s ease;
         }
+
+        /* Set distinct background colors for each section for clarity */
+        .section.s1 { background-color: #f0f0f0; }
+        .section.s2 { background-color: #e9f7f9; }
+        .section.s3 { background-color: #fff8e1; }
+        .section.s4 { background-color: #f1f8e9; }
+        .section.s5 { background-color: #f9e9e9; }
+        .section.s6 { background-color: #eaf9f9; }
+        .section.s7 { background-color: #fff5e6; }
         
-        /* Section specific styles */
-        .home {
-          font-size: 2rem;
-          font-weight: bold;
-          text-align: center;
-          margin-top: 20px;
-        }
-        
+        /* Styling for the content inside each subsection */
         .subsection {
           max-width: 800px;
           width: 100%;
@@ -363,33 +361,21 @@
           font-size: 2rem;
           margin-bottom: 15px;
         }
-        
+
         .content p {
           font-size: 1.2rem;
           line-height: 1.6;
           color: #333;
         }
         
-        /* Backgrounds for each section */
-        .section.s1 { background-color: #f0f0f0; }
-        .section.s2 { background-color: #e9f7f9; }
-        .section.s3 { background-color: #fff8e1; }
-        .section.s4 { background-color: #f1f8e9; }
-        .section.s5 { background-color: #f9e9e9; }
-        .section.s6 { background-color: #eaf9f9; }
-        .section.s7 { background-color: #fff5e6; }
-        
-        .content h2 {
+        /* Styling for header content */
+        .home {
+          font-size: 2rem;
           font-weight: bold;
-          color: #333;
+          text-align: center;
+          margin-top: 20px;
         }
-        
-        .content p {
-          color: #555;
-        }
-
-
-        
+      
         /* Modal styles */
         .modal {
             display: none;
@@ -496,15 +482,16 @@
     </section>    
     
     
-     <section id="about" class="about-section">
-      <!-- First Section: Introduction -->
+    
+    <section id="about" class="about-section">
+      <!-- Section 1: Introduction -->
       <div class="section s1">
         <div class="home">
           <span>About Me</span>
         </div>
       </div>
     
-      <!-- Second Section: Early Life -->
+      <!-- Section 2: Early Life -->
       <div class="section s2">
         <div class="subsection" id="early-life">
           <div class="content">
@@ -513,8 +500,8 @@
           </div>
         </div>
       </div>
-    
-      <!-- Third Section: Education -->
+
+      <!-- Section 3: Education -->
       <div class="section s3">
         <div class="subsection" id="education">
           <div class="content">
@@ -524,7 +511,7 @@
         </div>
       </div>
     
-      <!-- Fourth Section: Career Goals -->
+      <!-- Section 4: Career Goals -->
       <div class="section s4">
         <div class="subsection" id="career-goals">
           <div class="content">
@@ -534,7 +521,7 @@
         </div>
       </div>
 
-      <!-- Fifth Section: UPSC Preparation -->
+      <!-- Section 5: UPSC Preparation -->
       <div class="section s5">
         <div class="subsection" id="upsc-prep">
           <div class="content">
@@ -544,7 +531,7 @@
         </div>
       </div>
     
-      <!-- Sixth Section: Interests and Hobbies -->
+      <!-- Section 6: Interests and Hobbies -->
       <div class="section s6">
         <div class="subsection" id="interests">
           <div class="content">
@@ -554,7 +541,7 @@
         </div>
       </div>
     
-      <!-- Seventh Section: Future Goals -->
+      <!-- Section 7: Future Goals -->
       <div class="section s7">
         <div class="subsection" id="future-goals">
           <div class="content">
@@ -564,8 +551,6 @@
         </div>
       </div>
     </section>
-
-    
 
     <!-- Projects Section -->
     <section id="projects" class="py-16">
@@ -797,13 +782,14 @@
               }
             }
           });
-    
-      // Function to scroll to a specific section
-      function scrollToSection(index) {
-        const section = sections[index];
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
+
+          // Function to scroll to a specific section
+          function scrollToSection(index) {
+            const section = sections[index];
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+
             
 
     </script>
