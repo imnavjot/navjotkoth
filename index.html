@@ -71,44 +71,9 @@
             }
         }
         
+
+
         
-        .typing-container {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100vh; /* Ensures it's vertically centered */
-          font-family: Arial, sans-serif;
-          font-size: 2rem;
-          font-weight: bold;
-          color: #333;
-        }
-        
-        .static-text {
-          position: relative;
-        }
-        
-        .dynamic-text {
-          display: inline-block;
-          border-right: 2px solid #333; /* Typing cursor effect */
-          white-space: nowrap;
-          overflow: hidden; /* Hides overflowing text */
-          animation: typing 3s steps(30, end), blink-caret 0.5s step-end infinite;
-        }
-        
-        @keyframes typing {
-          from {
-            width: 0;
-          }
-          to {
-            width: 100%; /* Adjust this based on the longest text */
-          }
-        }
-        
-        @keyframes blink-caret {
-          50% {
-            border-color: transparent;
-          }
-        }
             
         .image-container {
             position: relative;
@@ -436,10 +401,7 @@
         
             <!-- Content (near bottom) -->
             <div class="mt-auto mb-8"> <!-- mt-auto ensures it moves towards the bottom -->
-                <div class="typing-container">
-                  <span class="static-text">I am </span>
-                  <span class="dynamic-text"></span>
-                </div>
+
         
                 <div class="image-container w-40 h-40 mx-auto mt-8 shadow-lg overflow-hidden relative">
                     <img src="image.png" alt="Navjot Koth" class="w-full h-full">
@@ -612,22 +574,6 @@
             document.getElementById(projectId).style.display = 'none';
         }
 
-        const words = ["a Developer", "a Designer", "a Problem Solver"];
-        let wordIndex = 0;
-        
-        const dynamicText = document.querySelector(".dynamic-text");
-        
-        function typeWords() {
-          dynamicText.textContent = words[wordIndex];
-          dynamicText.style.animation = "none"; // Reset animation
-          setTimeout(() => {
-            dynamicText.style.animation = "typing 3s steps(30, end), blink-caret 0.5s step-end infinite";
-          });
-          wordIndex = (wordIndex + 1) % words.length; // Loop through words
-        }
-        
-        setInterval(typeWords, 4000); // Change word every 4 seconds
-        typeWords(); // Initial call
 
 
         
