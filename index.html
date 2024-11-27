@@ -318,130 +318,59 @@
           text-decoration: none;
         }
          
+
+        
         .about-section {
-          scroll-snap-type: y mandatory;
-          height: 100vh;
-          overflow: hidden; /* Hides the scrollbar */
-        }
-        
-        .about-section::-webkit-scrollbar {
-          display: none; /* Hides the scrollbar in WebKit browsers */
-        }
-        
-        .about-section > * {
-          height: 100%; /* Ensure content stretches the full height */
-          overflow-y: scroll; /* Enable scrolling on child elements */
+          padding: 50px 10%;
+          background-color: var(--color-bg);
+          color: var(--color-text);
+          font-family: var(--font-main);
         }
         
         .section-title {
-          font-size: 2.5rem;
+          font-size: 3rem;
+          font-family: var(--font-heading);
           text-align: center;
-          margin: 20px 0;
-          color: #333;
-          animation: fade-in 1s ease-in-out;
+          color: var(--color-primary);
+          margin-bottom: 30px;
         }
         
-        /* Navigation Indicator */
-        .indicator {
-          display: flex;
-          justify-content: center;
-          list-style: none;
-          padding: 0;
-          margin: 10px 0;
+        .sub-section {
+          margin: 30px 0;
+          padding: 20px;
+          background-color: var(--color-secondary);
+          color: #fff;
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+          transition: transform var(--time-animation), background-color var(--time-animation);
         }
         
-        .indicator li {
-          margin: 0 10px;
-          animation: pulse 1s infinite alternate;
+        .sub-section:hover {
+          transform: scale(1.05);
+          background-color: #6a2f41;
         }
         
-        .indicator li a {
-          text-decoration: none;
-          color: #007BFF;
+        .sub-section h2 {
+          font-size: 2rem;
+          font-family: var(--font-heading);
+          margin-bottom: 10px;
+        }
+        
+        .sub-section .description {
+          font-size: 1.2rem;
+          line-height: 1.6;
+        }
+        
+        .highlight {
+          color: var(--color-primary);
+          font-size: 2.5rem;
+        }
+        
+        .emphasis {
+          color: var(--color-secondary);
           font-weight: bold;
         }
         
-        .indicator li a:hover {
-          text-decoration: underline;
-        }
-        
-        /* Sub-section Styles */
-        .sub-section {
-          scroll-snap-align: start;
-          height: 100vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background-color: #fff;
-          position: relative;
-          animation: fade-in 2s ease;
-        }
-        
-        .sub-section:nth-child(even) {
-          background-color: #f0f0f0;
-        }
-        
-        .sub-section .content {
-          text-align: center;
-          animation: blink 2s infinite;
-        }
-        
-        .text p {
-          margin: 10px 0;
-          line-height: 1.6;
-          font-size: 1rem;
-          color: #666;
-        }
-        
-        /* Animation Keyframes */
-        @keyframes fade-in {
-          0% {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        @keyframes pulse {
-          0% {
-            transform: scale(1);
-            opacity: 0.7;
-          }
-          100% {
-            transform: scale(1.1);
-            opacity: 1;
-          }
-        }
-        
-        @keyframes blink {
-          0%, 50% {
-            opacity: 1;
-          }
-          25%, 75% {
-            opacity: 0.5;
-          }
-          100% {
-            opacity: 0.7;
-          }
-        }
-        
-        @keyframes fade-effect {
-          from {
-            background-color: #fff;
-          }
-          to {
-            background-color: #333;
-            color: #fff;
-          }
-        }
-        
-        /* Applying Fade Effect to Sections */
-        .sub-section:nth-child(3) {
-          animation: fade-effect 3s infinite alternate;
-        }
 
         
         /* Modal styles */
@@ -548,65 +477,40 @@
         </div>
       </div>
     </section>    
+    
+    <section id="about" class="about-section">
+      <div class="content">
+        <h2 class="section-title">About Me</h2>
+        <main>
+          <div id="snapping" class="sub-section">
+            <div class="content">
+              <h2><span class="highlight">Who</span> I Am</h2>
+              <p class="description">
+                Passionate about <strong>innovation</strong> and <strong>design</strong>, I thrive in creating
+                impactful solutions. Driven by <span class="emphasis">curiosity</span> and a love for learning.
+              </p>
+            </div>
+          </div>
+          <div id="scrolling" class="sub-section">
+            <div class="content">
+              <h2><span class="highlight">What</span> I Do</h2>
+              <p class="description">
+                I specialize in crafting engaging user experiences with <em>cutting-edge</em> technologies and a touch of creativity.
+              </p>
+            </div>
+          </div>
+          <div id="layout" class="sub-section">
+            <div class="content">
+              <h2><span class="highlight">How</span> I Work</h2>
+              <p class="description">
+                Focused on <strong>collaboration</strong>, I ensure seamless integration of ideas to deliver exceptional results.
+              </p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </section>
 
-      <section id="about" class="about-section">
-        <div class="content">
-          <h2 class="section-title">About Me</h2>
-          <header class="site-header">
-            <nav>
-              <ul class="indicator">
-                <li><a href="#snapping"><span class="sr-only">Snapping</span></a></li>
-                <li><a href="#scrolling"><span class="sr-only">Scrolling</span></a></li>
-                <li><a href="#layout"><span class="sr-only">Layout</span></a></li>
-                <li><a href="#transition"><span class="sr-only">Transition</span></a></li>
-                <li><a href="#caveats"><span class="sr-only">Caveats</span></a></li>
-              </ul>
-            </nav>
-          </header>
-          <main>
-            <div id="snapping" class="sub-section">
-              <div class="content">
-                <h2><strong>First</strong>, we set up the <em>snapping</em> points</h2>
-                <div class="text">
-                  <p>We set up scroll snapping with CSS properties like <code>scroll-snap-align</code>.</p>
-                </div>
-              </div>
-            </div>
-            <div id="scrolling" class="sub-section">
-              <div class="content">
-                <h2><strong>Next</strong>, we add <em>scrolling</em> animations</h2>
-                <div class="text">
-                  <p>Animations are tied to the scroll position using view timelines.</p>
-                </div>
-              </div>
-            </div>
-            <div id="layout" class="sub-section">
-              <div class="content">
-                <h2><strong>Then</strong>, we implement a <em>fixed layout</em></h2>
-                <div class="text">
-                  <p>Fixed-position elements allow seamless animations between sections.</p>
-                </div>
-              </div>
-            </div>
-            <div id="transition" class="sub-section">
-              <div class="content">
-                <h2><strong>Finally</strong>, we apply <em>transitions</em></h2>
-                <div class="text">
-                  <p>Transitions smoothly change properties during the scroll event.</p>
-                </div>
-              </div>
-            </div>
-            <div id="caveats" class="sub-section">
-              <div class="content">
-                <h2><strong>Caveats</strong></h2>
-                <div class="text">
-                  <p>Scroll animations can have limitations, but they enhance UX.</p>
-                </div>
-              </div>
-            </div>
-          </main>
-        </div>
-      </section>
 
     <!-- Projects Section -->
     <section id="projects" class="py-16">
@@ -816,7 +720,17 @@
             } catch (error) {
               console.error("Error initializing floating button script:", error);
             }
-          })(); 
+          })();
+
+        document.querySelectorAll('.sub-section').forEach((section, index) => {
+          section.addEventListener('click', () => {
+            window.scrollTo({
+              top: document.getElementById(section.id).offsetTop,
+              behavior: 'smooth',
+            });
+          });
+        });
+
     </script>
 </body>
 </html>
