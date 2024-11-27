@@ -70,11 +70,7 @@
                 transform: translateY(50%) rotate(360deg);
             }
         }
-        
-
-
-        
-            
+               
         .image-container {
             position: relative;
             width: 10rem;  /* Adjust the width as needed */
@@ -201,12 +197,114 @@
             opacity: 1;
           }
         }
-
-        /* General Styles */
-        body {
-          overflow: auto;
+        
+        .typing-section {
+          position: relative;
+          padding: 50px 20px;
+          background-color: #f9f9f9; /* Optional background color */
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
         
+        .typing-section .wrapper {
+          position: relative;
+          width: 100%;
+          max-width: 300px;
+        }
+        
+        .typing-section .wrapper .container {
+          position: relative;
+          width: 300px;
+          height: 300px;
+          margin: auto;
+        }
+        
+        .typing-section .wrapper [data-typing] {
+          position: absolute;
+          font-size: 25px;
+          line-height: 1;
+          color: #333;
+        }
+        
+        .typing-section .wrapper [data-typing="i"] {
+          top: 0;
+          left: 50px;
+          font-size: 90px;
+          height: 70px;
+          line-height: 70px;
+        }
+        
+        .typing-section .wrapper [data-typing="frontend"] {
+          top: 3px;
+          left: 80px;
+          font-size: 27px;
+          letter-spacing: 1px;
+        }
+        
+        .typing-section .wrapper [data-typing="engineer"] {
+          top: 30px;
+          left: 80px;
+          font-size: 40px;
+          letter-spacing: 1px;
+        }
+        
+        .typing-section .wrapper [data-typing="with"] {
+          top: 74px;
+          left: 265px;
+          font-size: 36px;
+          transform: rotate(90deg);
+          background: #333;
+          color: #fff;
+          padding: 0 4px;
+        }
+        
+        .typing-section .wrapper [data-typing="javascript"] {
+          top: 74px;
+          left: 229px;
+          transform: rotate(90deg);
+          font-size: 35px;
+        }
+        
+        .typing-section .wrapper [data-typing="typescript"],
+        .typing-section .wrapper [data-typing="css"],
+        .typing-section .wrapper [data-typing="nodejs"],
+        .typing-section .wrapper [data-typing="animation"],
+        .typing-section .wrapper [data-typing="scenejs"] {
+          right: 110px;
+        }
+        
+        .typing-section .wrapper [data-typing="typescript"] {
+          top: 72px;
+          font-size: 25px;
+        }
+        
+        .typing-section .wrapper [data-typing="css"] {
+          top: 97px;
+          font-size: 40px;
+        }
+        
+        .typing-section .wrapper [data-typing="nodejs"] {
+          top: 134px;
+          font-size: 35px;
+        }
+        
+        .typing-section .wrapper [data-typing="animation"] {
+          top: 167px;
+          font-size: 35px;
+        }
+        
+        .typing-section .wrapper [data-typing="scenejs"] {
+          top: 200px;
+          font-size: 35px;
+        }
+        
+        .typing-section .wrapper a {
+          color: #333;
+          text-decoration: none;
+        }
+         
         .about-section {
           scroll-snap-type: y mandatory;
           height: 100vh;
@@ -401,13 +499,10 @@
         
             <!-- Content (near bottom) -->
             <div class="mt-auto mb-8"> <!-- mt-auto ensures it moves towards the bottom -->
-
-        
                 <div class="image-container w-40 h-40 mx-auto mt-8 shadow-lg overflow-hidden relative">
                     <img src="image.png" alt="Navjot Koth" class="w-full h-full">
                 </div>
             </div>
-
             <!-- Scroll Indicator -->
             <a href="#about">
                 <div id="mouse-scroll">
@@ -423,6 +518,23 @@
             </a>    
     </header>
 
+
+    <section id="typing-effect" class="typing-section">
+      <div class="wrapper">
+        <div class="container">
+          <a href="https://github.com/daybrush" target="_blank" data-typing="i">I</a>
+          <a href="https://github.com/daybrush" target="_blank" data-typing="frontend">'m Front-End</a>
+          <a href="https://github.com/daybrush" target="_blank" data-typing="engineer">Engineer</a>
+          <p data-typing="with">with</p>
+          <p data-typing="javascript">JavaScript</p>
+          <p data-typing="typescript">TypeScript</p>
+          <p data-typing="css">CSS</p>
+          <p data-typing="nodejs">Node.js</p>
+          <p data-typing="animation">Animation</p>
+          <a href="https://github.com/daybrush/scenejs" target="_blank" data-typing="scenejs">Scene.js</a>
+        </div>
+      </div>
+    </section>    
 
       <section id="about" class="about-section">
         <div class="content">
