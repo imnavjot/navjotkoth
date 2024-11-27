@@ -318,8 +318,6 @@
           text-decoration: none;
         }
          
-
-                
         /* General Layout */
         #about {
           display: flex;
@@ -329,9 +327,11 @@
         }
         
         .about-section {
-          position: relative;
-          width: 100%;
-          overflow-y: scroll;
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          scroll-snap-type: y mandatory; /* Enables snap scrolling */
+          overflow-y: auto;
         }
         
         .section {
@@ -339,11 +339,13 @@
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          height: 100vh;
+          height: 100vh; /* Each section takes up the full height of the screen */
           padding: 20px;
+          scroll-snap-align: start; /* Ensures the section snaps into place */
           transition: transform 0.5s ease;
         }
         
+        /* Section specific styles */
         .home {
           font-size: 2rem;
           font-weight: bold;
@@ -365,45 +367,17 @@
         .content p {
           font-size: 1.2rem;
           line-height: 1.6;
+          color: #333;
         }
         
-        /* Scroll Behavior */
-        .about-section {
-          scroll-snap-type: y mandatory;
-        }
-        
-        .section {
-          scroll-snap-align: start;
-          scroll-snap-stop: always;
-        }
-        
-        .section.s1 {
-          background-color: #f0f0f0;
-        }
-        
-        .section.s2 {
-          background-color: #e9f7f9;
-        }
-        
-        .section.s3 {
-          background-color: #fff8e1;
-        }
-        
-        .section.s4 {
-          background-color: #f1f8e9;
-        }
-        
-        .section.s5 {
-          background-color: #f9e9e9;
-        }
-        
-        .section.s6 {
-          background-color: #eaf9f9;
-        }
-        
-        .section.s7 {
-          background-color: #fff5e6;
-        }
+        /* Backgrounds for each section */
+        .section.s1 { background-color: #f0f0f0; }
+        .section.s2 { background-color: #e9f7f9; }
+        .section.s3 { background-color: #fff8e1; }
+        .section.s4 { background-color: #f1f8e9; }
+        .section.s5 { background-color: #f9e9e9; }
+        .section.s6 { background-color: #eaf9f9; }
+        .section.s7 { background-color: #fff5e6; }
         
         .content h2 {
           font-weight: bold;
@@ -413,7 +387,7 @@
         .content p {
           color: #555;
         }
-        
+
 
         
         /* Modal styles */
@@ -521,7 +495,8 @@
       </div>
     </section>    
     
-    <section id="about" class="about-section">
+    
+     <section id="about" class="about-section">
       <!-- First Section: Introduction -->
       <div class="section s1">
         <div class="home">
@@ -558,7 +533,7 @@
           </div>
         </div>
       </div>
-    
+
       <!-- Fifth Section: UPSC Preparation -->
       <div class="section s5">
         <div class="subsection" id="upsc-prep">
@@ -589,6 +564,7 @@
         </div>
       </div>
     </section>
+
     
 
     <!-- Projects Section -->
@@ -805,7 +781,7 @@
           const sections = document.querySelectorAll('.section');
           let activeIndex = 0;
         
-          // Optional: Smooth scroll to the next section when scrolling
+          // Optional: Scroll through sections on wheel scroll
           document.querySelector('#about').addEventListener('wheel', function(event) {
             if (event.deltaY > 0) {
               // Scroll down
@@ -821,14 +797,14 @@
               }
             }
           });
-        
-          // Function to scroll to a specific section
-          function scrollToSection(index) {
-            const section = sections[index];
-            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        });
-        
+    
+      // Function to scroll to a specific section
+      function scrollToSection(index) {
+        const section = sections[index];
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+            
 
     </script>
 </body>
