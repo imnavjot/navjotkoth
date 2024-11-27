@@ -688,17 +688,57 @@
             document.getElementById(projectId).style.display = 'none';
         }
 
-        const scene = new Scene({
-          ".wrapper [data-typing]": {
-            0: { opacity: 0, transform: "translateY(20px)" },
-            1: { opacity: 1, transform: "translateY(0)" },
-          },
-        });
-    
-        scene.playCSS();        
-
-
+           
         
+          const scene = new Scene({
+            ".wrapper [data-typing]": {
+              0: { opacity: 0, transform: "translateY(20px)" },
+              1: { opacity: 1, transform: "translateY(0)" },
+            },
+          });
+        
+          scene.playCSS();
+        
+          // Floating button without tracker
+          (function () {
+            try {
+              // Skip execution in specific conditions
+              if (location.href.includes("fullcpgrid") || navigator.userAgent.includes("Scene.js")) {
+                return;
+              }
+        
+              // Create the floating button
+              const button = document.createElement("a");
+              button.href = "https://github.com/daybrush/scenejs"; // Button action link
+              button.target = "_blank"; // Open in new tab
+              button.textContent = "?"; // Button label
+              button.style.cssText = `
+                position: fixed;
+                bottom: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                border-radius: 50%;
+                border: 2px solid #555;
+                background-color: #fff;
+                overflow: hidden;
+                padding: 0;
+                box-sizing: border-box;
+                text-align: center;
+                text-decoration: none;
+                color: black;
+                font-weight: bold;
+                font-family: sans-serif;
+                font-size: 20px;
+              `;
+        
+              // Append the button to the page
+              document.body.appendChild(button);
+            } catch (error) {
+              console.error("Error initializing floating button script:", error);
+            }
+          })(); 
     </script>
 </body>
 </html>
