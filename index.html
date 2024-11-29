@@ -52,6 +52,18 @@
         }
         
         /* Square Dot Styling */
+        .text-5xl::before {
+            content: ""; /* Generate square dot */
+            display: inline-block;
+            width: 10px; /* Size of the square */
+            height: 10px;
+            background-color: #ec0053; /* Square color */
+            margin-right: 8px; /* Spacing from the name */
+            position: absolute;
+            bottom: 13px;
+            transform: translateY(50%) rotate(0deg); /* Center vertically and rotate */
+            animation: rotate-dot 2s linear infinite;
+        }        
         .text-5xl::after {
             content: ""; /* Generate square dot */
             display: inline-block;
